@@ -17,20 +17,20 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   /* 🔹 Subtitle text mapped to card type */
-  const cardSubtitles = {
-    "not-reachable": `
-      AI-powered call handling for Busy professionals, Small businesses, and Individuals.
-    `,
-    "all-calls": `
-      Personalize the message your AI assistant uses when replying to callers with CatchMyCall.
-    `,
-    "busy": `
-      Never miss an important call during meetings-CatchMyCall will handle all your calls.
-    `,
-    "no-answer": `
-     CatchMyCall ensures every call is handled, summarized, and delivered to you.
-    `
-  };
+ const cardSubtitles = {
+  "not-reachable": `
+    AI-powered call handling for <strong style="font-weight: 500;">Busy professionals</strong>, <strong style="font-weight: 500;">Small businesses</strong>, and <strong style="font-weight: 500;">Individuals</strong>.
+  `,
+  "all-calls": `
+    Personalize the message your AI assistant uses when replying to callers with <strong style="font-weight: 500;">CatchMyCall</strong>.
+  `,
+  "busy": `
+    Never miss an important call during meetings—<strong style="font-weight: 500;">CatchMyCall</strong> will handle all your calls.
+  `,
+  "no-answer": `
+    <strong style="font-weight: 500;">CatchMyCall</strong> ensures every call is handled, summarized, and delivered to you.
+  `
+};
 
   function updateSubtitle(activeCard) {
     const type = activeCard.dataset.card;
