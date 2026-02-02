@@ -228,7 +228,7 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 117vh;
+  min-height: 100dvh;
   position: relative;
   padding: 40px 80px;
   display: flex;
@@ -424,7 +424,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
 /* App Buttons Container */
 .app-buttons-container {
   position: absolute;
-  top: 68%;
+  top: 79%;
   left: 69%;
   transform: translateX(-50%);
   display: flex;
@@ -459,7 +459,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
 
 .rotating-cards-container {
   position: absolute;
-  top: 42%;
+  top: 50%;
   left: 70%;
   transform: translateX(-50%);
   width: 750px;  
@@ -470,7 +470,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
 
 .hero-arrow-animation {
   position: absolute;
-  bottom: 24%;  
+  bottom: 11%;  
   left: 68%;
   transform: translateX(-50%);
   z-index: 100;
@@ -492,7 +492,8 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
 
 .hero-wave-animation {
   position: absolute;
-  bottom: -2%;
+  /* bottom: -2%; */
+  top: 57%;
   left: 68%;
   transform: translateX(-50%);
   width: 48%;
@@ -1019,7 +1020,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   padding: 40px 80px;
   display: flex;
@@ -1060,7 +1061,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      min-height: 100vh;
+      min-height: 89dvh;
       position: relative;
       padding: 80px 0px;
       display: flex;
@@ -1431,9 +1432,9 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
    background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 70vh;
+  min-height: 65dvh;
   position: relative;
-  padding: 80px 80px; /*change*/
+  padding: 20px 80px; /*change*/
   display: flex;
   flex-direction: column;
 }
@@ -1577,7 +1578,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   padding: 50px 80px;
   display: flex;
@@ -2045,7 +2046,7 @@ background: url(images/cross-icon.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   padding: 80px 80px;
   display: flex;
@@ -2309,8 +2310,8 @@ background: url(images/cross-icon.png);
 }
 
 .service-icon-wrapper:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  /* background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15); */
   transform: translateY(-4px);
 }
 
@@ -2394,9 +2395,9 @@ background: url(images/cross-icon.png);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      min-height: 69vh;
+      min-height: 80dvh;
       position: relative;
-      padding: 0px 15px;
+      padding: 20px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2637,6 +2638,10 @@ background: url(images/cross-icon.png);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      min-height: 100dvh;
+      position: relative;
+      padding: 20px 15px;
+      
 }
 
 .faq-container {
@@ -2666,7 +2671,8 @@ background: url(images/cross-icon.png);
     font-size: 48px;
     font-weight: 400;
     line-height: 1.2;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    margin-top: 16px;
     background: linear-gradient(90deg, #CB93FF 0%, #56BEFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2694,8 +2700,13 @@ background: url(images/cross-icon.png);
     font-family: "Rubik", sans-serif;
 }
 
+.faq-envelope{
+  width: 7%;
+  margin-top: 4px;
+}
+
 .faq-email:hover {
-    color: #7c3aed;
+    /* color: #7c3aed; */
     gap: 12px;
 }
 
@@ -2817,7 +2828,7 @@ background: url(images/cross-icon.png);
 /* Stats Section */
 .stats-section {
   background: linear-gradient(180deg, rgba(8, 7, 19, 0.95) 0%, rgba(8, 7, 19, 1) 100%);
-  padding: 10px 80px;
+  padding: 20px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3139,10 +3150,10 @@ line-height: normal;
   /* padding: 80px 30px 40px 30px;
   width: 100%; */
     /* background-image: url(images/footer.png); */
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 60vh;
+  min-height: 100dvh; */
   position: relative;
   padding: 80px 80px;
   display: flex;
