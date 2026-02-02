@@ -1932,7 +1932,7 @@ background: url(images/cross-icon.png);
   font-size: 13px;
   font-weight: 400;
   padding-left: 15%;
-  margin-top: -10%;
+  margin: 0px;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -2394,7 +2394,7 @@ background: url(images/cross-icon.png);
 
 /* Testimonials Section */
     .testimonials-section {
-      background-image: url(images/seventh-section-new.jpg);
+      background-image: url(images/seventh-section-latest.jpg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -2637,7 +2637,7 @@ background: url(images/cross-icon.png);
     padding: 136px 34px 0px;
     /* background: #0a0a1a;
     color: #fff; */
-      background-image: url(images/eigth-section-new.jpg);
+      background-image: url(images/eigth-section-latest.jpg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
