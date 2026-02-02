@@ -1493,7 +1493,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+  /* box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3); */
 }
 
 .card-title {
@@ -1579,7 +1579,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   background-position: center;
   min-height: 100vh;
   position: relative;
-  padding: 0px 80px;
+  padding: 50px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2264,6 +2264,7 @@ background: url(images/cross-icon.png);
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
+  width: 100%;
 }
 
 /* Services Section */
@@ -2291,6 +2292,7 @@ background: url(images/cross-icon.png);
   align-items: center;
   text-align: center;
   gap: 12px;
+  width: 100%;
 }
 
 .service-icon-wrapper {
