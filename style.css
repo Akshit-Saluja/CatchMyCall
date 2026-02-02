@@ -1856,6 +1856,8 @@ line-height: normal;
   border-bottom: 1px  solid rgba(255, 255, 255, 0.08);
 
 }
+
+
 .feature-item:first-child{
 padding-top: none;
 }
@@ -1863,6 +1865,7 @@ padding-top: none;
 .feature-item:last-child {
   border-bottom: none;
 }
+
 
 /* .feature-icon {
   width: 22px;
@@ -1928,8 +1931,8 @@ background: url(images/cross-icon.png);
   font-family: "Rubik", sans-serif;
   font-size: 13px;
   font-weight: 400;
-  margin-left: 32px;
-  margin-top: -8px;
+  margin-left: 15%;
+  margin-top: -10%;
   text-decoration: underline;
   cursor: pointer;
 }
