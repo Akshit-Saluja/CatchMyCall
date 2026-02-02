@@ -21,7 +21,7 @@ body{
   left: 50%;
   transform: translateX(-50%);
   width: 100%;   
-  max-width: 1400px;
+  max-width: 100%;
   height: 121px;
   background:linear-gradient(180deg, rgba(0, 0, 0, 0.95) 41%, rgba(0, 0, 0, 0.00) 90.99%);;
   border-radius: 0px;
@@ -45,6 +45,7 @@ body{
   height: 25%;
   display: block;
   z-index: 10000;  /* Increased to stay above nav */
+  text-decoration: none;
 }
 .mobile-nav-bar{
   display: none;
@@ -227,7 +228,7 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 117dvh;
+  min-height: 117vh;
   position: relative;
   padding: 40px 80px;
   display: flex;
@@ -371,7 +372,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   transform: translateX(-50%);
   text-align: center;
   z-index: 6;
-  max-width: 800px;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -396,7 +397,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   left: 0;
   transform: none;
   width: 100%;
-  max-width: 518px;
+  max-width: 41%;
   margin: 0 auto;
   display: block;
   text-align: center;
@@ -494,8 +495,8 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   bottom: -2%;
   left: 68%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 600px;
+  width: 48%;
+  max-width: 100%;
   height: auto;
   z-index: 99;
   pointer-events: none;
@@ -595,7 +596,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
   flex-direction: column;
   gap: 0;
   width: 100%;
-  max-width: 280px;
+  max-width: 100%;
   margin-bottom: 50px;
 }
 
@@ -1055,7 +1056,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
 
  /* Call History Section */
     .call-history {
-      background-image: url(images/third-section-2.jpg);
+      background-image: url(images/call-history-section-without-glow.jpg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -1131,6 +1132,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
       display: block;
       position: relative;
       z-index: 1;
+          filter: drop-shadow(0 -114px 40px rgba(147, 51, 234, 0.1)) drop-shadow(0 -127px 80px rgba(147, 51, 234, 0.1)) drop-shadow(0 -122px 120px rgba(147, 51, 234, 0.1));
     }
 
   
@@ -1321,7 +1323,7 @@ transform: translateY(-50%) scale(0.92) rotateY(22deg);  z-index: 1;
     .right-content {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 50px;
     }
 
     .feature-row {
