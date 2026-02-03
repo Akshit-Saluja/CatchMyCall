@@ -17,33 +17,54 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   /* 🔹 Subtitle text mapped to card type */
- const cardSubtitles = {
-  "not-reachable": `
-    AI-powered call handling for <strong style="font-weight: 500;">Busy professionals</strong>, <strong style="font-weight: 500;">Small <br>businesses</strong>, and <strong style="font-weight: 500;">Individuals</strong>.
-  `,
-  "all-calls": `
-    Personalize the message your AI assistant uses when <br>replying to callers with <strong style="font-weight: 500;">CatchMyCall</strong>.
-  `,
-  "busy": `
-    Never miss an important call during meetings—<strong style="font-weight: 500;">CatchMyCall</strong><br> will handle all your calls.
-  `,
-  "no-answer": `
-    <strong style="font-weight: 500;">CatchMyCall</strong> ensures every call is handled, summarized,<br> and delivered to you.
-  `
-};
-
-  function updateSubtitle(activeCard) {
-    const type = activeCard.dataset.card;
-    if (!cardSubtitles[type]) return;
-
-    heroSubtitle.classList.add('fade-out');
-
-    setTimeout(() => {
-      heroSubtitle.innerHTML = cardSubtitles[type];
-      heroSubtitle.classList.remove('fade-out');
-    }, 200);
+/* 🔹 Subtitle text mapped to card type */
+function getCardSubtitles() {
+  const isMobile = window.innerWidth <= 768;
+  
+  if (isMobile) {
+    return {
+      "not-reachable": `
+        AI-powered call handling for <strong style="font-weight: 500;">Busy professionals</strong>, <strong style="font-weight: 500;">Small businesses</strong>, and <strong style="font-weight: 500;">Individuals</strong>.
+      `,
+      "all-calls": `
+        Personalize the message your AI assistant uses when replying to callers with <strong style="font-weight: 500;">CatchMyCall</strong>.
+      `,
+      "busy": `
+        Never miss an important call during meetings—<strong style="font-weight: 500;">CatchMyCall</strong> will handle all your calls.
+      `,
+      "no-answer": `
+        <strong style="font-weight: 500;">CatchMyCall</strong> ensures every call is handled, summarized, and delivered to you.
+      `
+    };
+  } else {
+    return {
+      "not-reachable": `
+        AI-powered call handling for <strong style="font-weight: 500;">Busy professionals</strong>, <strong style="font-weight: 500;">Small <br>businesses</strong>, and <strong style="font-weight: 500;">Individuals</strong>.
+      `,
+      "all-calls": `
+        Personalize the message your AI assistant uses when <br>replying to callers with <strong style="font-weight: 500;">CatchMyCall</strong>.
+      `,
+      "busy": `
+        Never miss an important call during meetings—<strong style="font-weight: 500;">CatchMyCall</strong><br> will handle all your calls.
+      `,
+      "no-answer": `
+        <strong style="font-weight: 500;">CatchMyCall</strong> ensures every call is handled, summarized,<br> and delivered to you.
+      `
+    };
   }
+}
+ function updateSubtitle(activeCard) {
+  const type = activeCard.dataset.card;
+  const cardSubtitles = getCardSubtitles();
+  if (!cardSubtitles[type]) return;
 
+  heroSubtitle.classList.add('fade-out');
+
+  setTimeout(() => {
+    heroSubtitle.innerHTML = cardSubtitles[type];
+    heroSubtitle.classList.remove('fade-out');
+  }, 200);
+}
   function updateBackground(activeCard) {
     if (!backgroundOverlay) return;
 
@@ -88,6 +109,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* 🚀 Init */
   updateCardPositions();
+});
+
+/* 🚀 Init */
+updateCardPositions();
+
+/* 📱 Update subtitles on window resize */
+window.addEventListener('resize', () => {
+  const activeCard = document.querySelector('.rotating-card.active');
+  if (activeCard) {
+    updateSubtitle(activeCard);
+  }
 });
 
 
@@ -359,16 +391,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-
 // Mobile Navigation Menu Toggle
 document.addEventListener("DOMContentLoaded", function () {
 
   const hamburgerMenu = document.getElementById("hamburgerMenu");
   const mobileNavOverlay = document.getElementById("mobileNavOverlay");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
-  const hamburgerIcon = hamburgerMenu.querySelector("i"); // FontAwesome icon
+  
 
   if (!hamburgerMenu || !mobileNavOverlay) return;
+  const hamburgerIcon = hamburgerMenu.querySelector("i"); // FontAwesome icon
 
   // Toggle menu
   hamburgerMenu.addEventListener("click", function () {
@@ -432,4 +464,112 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.toggle('active');
         });
     });
+});
+
+
+/* ==========================================
+   PRICING CAROUSEL FUNCTIONALITY
+   Add this to your responsive.js file
+   ========================================== */
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Pricing carousel initialization
+  const pricingContainer = document.querySelector('.pricing-cards-container');
+  const highlightedCard = document.querySelector('.pricing-card.highlighted');
+  
+  if (!pricingContainer || !highlightedCard) return;
+
+  // Function to center the highlighted card on page load
+  function centerHighlightedCard() {
+    // Only apply on mobile/tablet views
+    if (window.innerWidth <= 1200) {
+      const containerWidth = pricingContainer.offsetWidth;
+      const cardWidth = highlightedCard.offsetWidth;
+      const cardOffset = highlightedCard.offsetLeft;
+      
+      // Calculate scroll position to center the card
+      const scrollPosition = cardOffset - (containerWidth / 2) + (cardWidth / 2);
+      
+      // Smooth scroll to center
+      pricingContainer.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Center on load
+  centerHighlightedCard();
+
+  // Re-center on window resize
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      centerHighlightedCard();
+    }, 250);
+  });
+
+  // Optional: Add touch/swipe indicators for better UX
+  let isScrolling = false;
+  let scrollTimeout;
+
+  pricingContainer.addEventListener('scroll', function() {
+    isScrolling = true;
+    
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function() {
+      isScrolling = false;
+    }, 150);
+  });
+
+  // Optional: Snap to nearest card on scroll end
+  pricingContainer.addEventListener('scrollend', function() {
+    if (window.innerWidth <= 1200) {
+      const cards = document.querySelectorAll('.pricing-card');
+      const containerCenter = pricingContainer.scrollLeft + pricingContainer.offsetWidth / 2;
+      
+      let closestCard = null;
+      let closestDistance = Infinity;
+      
+      cards.forEach(card => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - cardCenter);
+        
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestCard = card;
+        }
+      });
+      
+      if (closestCard) {
+        const containerWidth = pricingContainer.offsetWidth;
+        const cardWidth = closestCard.offsetWidth;
+        const cardOffset = closestCard.offsetLeft;
+        const scrollPosition = cardOffset - (containerWidth / 2) + (cardWidth / 2);
+        
+        pricingContainer.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, { passive: true });
+
+  // Intersection Observer for scroll animations (optional enhancement)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px'
+  });
+
+  document.querySelectorAll('.pricing-card').forEach(card => {
+    observer.observe(card);
+  });
 });
