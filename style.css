@@ -199,7 +199,7 @@ body{
 
 .hero-text-container {
   position: absolute;
-  top: 198px;
+  top: 20vh;
   left: 69%;
   transform: translateX(-50%);
   text-align: center;
