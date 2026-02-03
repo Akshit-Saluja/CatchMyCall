@@ -318,6 +318,444 @@ body{
   object-fit: cover;
 }
 
+
+/* =====================================================
+   FRESH MEDIA QUERIES FOR ROTATING CARDS
+   Replace your existing media queries with these
+   ===================================================== */
+
+/* =====================================================
+   LARGE DESKTOPS (1440px and above)
+   ===================================================== */
+@media screen and (min-width: 1440px) {
+  .rotating-cards-container {
+    top: 50%;
+    left: 70%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 220px;
+  }
+
+  .rotating-card {
+    width: 260px;
+    height: 250px;
+  }
+
+  .rotating-card.prev {
+    left: 90px;
+    transform: translateY(-50%) scale(0.92) rotateY(-22deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .rotating-card.next {
+    right: 90px;
+    transform: translateY(-50%) scale(0.92) rotateY(22deg);
+  }
+}
+
+/* =====================================================
+   STANDARD DESKTOPS (1200px - 1439px)
+   ===================================================== */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+  .rotating-cards-container {
+    top: 50%;
+    left: 68%;
+    transform: translateX(-50%);
+    width: 750px;
+    height: 200px;
+  }
+
+  .rotating-card {
+    width: 220px;
+    height: 222px;
+  }
+
+  .rotating-card.prev {
+    left: 75px;
+    transform: translateY(-50%) scale(0.92) rotateY(-22deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .rotating-card.next {
+    right: 83px;
+    transform: translateY(-50%) scale(0.92) rotateY(22deg);
+  }
+}
+
+/* =====================================================
+   LAPTOP SCREENS (1024px - 1199px)
+   ===================================================== */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  .rotating-cards-container {
+    top: 50%;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 190px;
+  }
+
+  .rotating-card {
+    width: 190px;
+    height: 200px;
+  }
+
+  .rotating-card.prev {
+    left: 60px;
+    transform: translateY(-50%) scale(0.88) rotateY(-20deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  .rotating-card.next {
+    right: 60px;
+    transform: translateY(-50%) scale(0.88) rotateY(20deg);
+  }
+}
+
+/* =====================================================
+   TABLETS LANDSCAPE (900px - 1023px)
+   ===================================================== */
+@media screen and (min-width: 900px) and (max-width: 1023px) {
+  .rotating-cards-container {
+    top: 50%;
+    left: 62%;
+    transform: translateX(-50%);
+    width: 550px;
+    height: 180px;
+  }
+
+  .rotating-card {
+    width: 160px;
+    height: 180px;
+  }
+
+  .rotating-card.prev {
+    left: 45px;
+    transform: translateY(-50%) scale(0.85) rotateY(-18deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+
+  .rotating-card.next {
+    right: 45px;
+    transform: translateY(-50%) scale(0.85) rotateY(18deg);
+  }
+}
+
+/* =====================================================
+   TABLETS PORTRAIT (768px - 899px)
+   ===================================================== */
+@media screen and (min-width: 768px) and (max-width: 899px) {
+  .hero-text-container {
+    top: 140px;
+    width: 85%;
+  }
+
+  .text-wrapper-7 {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .rotating-cards-container {
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    height: 200px;
+  }
+
+  .rotating-card {
+    width: 140px;
+    height: 165px;
+  }
+
+  .rotating-card.prev {
+    left: 15px;
+    transform: translateY(-50%) scale(0.8) rotateY(-18deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .rotating-card.next {
+    right: 15px;
+    transform: translateY(-50%) scale(0.8) rotateY(18deg);
+  }
+
+  .app-buttons-container {
+    bottom: 140px;
+  }
+}
+
+/* =====================================================
+   MOBILE LANDSCAPE (640px - 767px)
+   ===================================================== */
+@media screen and (min-width: 640px) and (max-width: 767px) {
+  .hero-text-container {
+    top: 120px;
+    width: 90%;
+  }
+
+  .text-wrapper-7 {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .rotating-cards-container {
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    height: 190px;
+  }
+
+  .rotating-card {
+    width: 125px;
+    height: 150px;
+  }
+
+  .rotating-card.prev {
+    left: 10px;
+    transform: translateY(-50%) scale(0.78) rotateY(-16deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+
+  .rotating-card.next {
+    right: 10px;
+    transform: translateY(-50%) scale(0.78) rotateY(16deg);
+  }
+
+  .app-buttons-container {
+    bottom: 120px;
+  }
+}
+
+/* =====================================================
+   MOBILE PORTRAIT (480px - 639px)
+   ===================================================== */
+@media screen and (min-width: 480px) and (max-width: 639px) {
+  .hero-text-container {
+    top: 110px;
+    width: 92%;
+  }
+
+  .text-wrapper-7 {
+    font-size: 30px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    width: 85%;
+  }
+
+  .rotating-cards-container {
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    height: 200px;
+  }
+
+  .rotating-card {
+    width: 120px;
+    height: 145px;
+  }
+
+  .rotating-card.prev {
+    left: 5px;
+    transform: translateY(-50%) scale(0.75) rotateY(-15deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  .rotating-card.next {
+    right: 5px;
+    transform: translateY(-50%) scale(0.75) rotateY(15deg);
+  }
+
+  .app-buttons-container {
+    bottom: 110px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE (360px - 479px)
+   ===================================================== */
+@media screen and (min-width: 360px) and (max-width: 479px) {
+  .hero-text-container {
+    top: 10%;
+    width: 94%;
+  }
+
+  .text-wrapper-7 {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 14.5px;
+    line-height: 20px;
+    width: 82%;
+  }
+
+  .rotating-cards-container {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 400px;
+    height: 32%;
+  }
+
+  .rotating-card {
+    width: 180px;
+    height: 220px;
+  }
+
+  .rotating-card.prev {
+    left: -20%;
+    transform: translateY(-50%) scale(0.75) rotateY(-30deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .rotating-card.next {
+    right: -20%;
+    transform: translateY(-50%) scale(0.75) rotateY(30deg);
+  }
+
+  .app-buttons-container {
+    bottom: 26%;
+  }
+
+  .appstoree,
+  .playstoree {
+    width: 120px;
+  }
+}
+
+/* =====================================================
+   EXTRA SMALL MOBILE (320px - 359px)
+   ===================================================== */
+@media screen and (max-width: 359px) {
+  .hero-text-container {
+    top: 13%;
+    width: 96%;
+  }
+
+  .text-wrapper-7 {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 13.5px;
+    line-height: 19px;
+    width: 85%;
+  }
+
+  .rotating-cards-container {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 300px;
+    height: 24%;
+  }
+
+  .rotating-card {
+    width: 105px;
+    height: 130px;
+  }
+
+  .rotating-card.prev {
+    left: -28%;
+    transform: translateY(-50%) scale(0.68) rotateY(-28deg);
+  }
+
+  .rotating-card.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+
+  .rotating-card.next {
+    right: -28%;
+    transform: translateY(-50%) scale(0.68) rotateY(28deg);
+  }
+
+  .app-buttons-container {
+    bottom: 25%;
+  }
+
+  .appstoree,
+  .playstoree {
+    width: 110px;
+  }
+}
+
+/* =====================================================
+   COMMON STYLES FOR ALL BREAKPOINTS
+   ===================================================== */
+@media screen and (max-width: 1199px) {
+  .rotating-card {
+    border-radius: 28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-background {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .card-background {
+    width: 95%;
+  }
+  
+  .rotating-card {
+    border-radius: 24px;
+  }
+}
+
 /* App Buttons */
 .app-buttons-container {
   position: absolute;
@@ -579,36 +1017,7 @@ body{
     text-align: center;
   }
 
-  .rotating-cards-container {
-    position: absolute;
-    top: 320px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 350px;
-    height: 220px;
-  }
-
-  .rotating-card {
-    width: 130px;
-    height: 150px;
-  }
-
-  .rotating-card.prev {
-    left: 5px;
-    transform: translateY(-50%) scale(0.75) rotateY(-20deg);
-  }
-
-  .rotating-card.active {
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .rotating-card.next {
-    right: 5px;
-    transform: translateY(-50%) scale(0.75) rotateY(20deg);
-  }
-
+  
   .app-buttons-container {
     position: absolute;
     top: auto;
@@ -671,27 +1080,7 @@ body{
     line-height: 20px;
   }
 
-  .rotating-cards-container {
-    top: 300px;
-    max-width: 320px;
-    height: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .rotating-card {
-    width: 120px;
-    height: 140px;
-  }
-
-  .rotating-card.prev {
-    left: 0;
-  }
-
-  .rotating-card.next {
-    right: 0;
-  }
-
+  
   .app-buttons-container {
     bottom: 100px;
   }
@@ -740,34 +1129,7 @@ body{
     width: 81%;
   }
 
-  .rotating-cards-container {
-    top: 38%;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 84%;
-    height: 26%;
-  }
-
-  .rotating-card {
-    width: 200px;
-    height: 240px;
-  }
-
-  .rotating-card.prev {
-    left: -31%;
-    transform: translateY(-50%) scale(0.75) rotateY(-30deg);
-  }
-
-  .rotating-card.active {
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .rotating-card.next {
-    right: -31%;
-    transform: translateY(-50%) scale(0.75) rotateY(30deg);
-  }
-
+ 
   .app-buttons-container {
     bottom: 24%;
   }
@@ -1791,7 +2153,7 @@ background: url(images/cross-icon.png);
   cursor: pointer;
 }
 
-/* Responsive Design */
+/* Tablet and below - Enable horizontal scrolling with centered highlighted card */
 @media (max-width: 1200px) {
   .pricing-cards-container {
     display: flex;
@@ -1801,13 +2163,21 @@ background: url(images/cross-icon.png);
     gap: 20px;
     max-width: 100%;
     padding: 0 20px 20px 20px;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hide scrollbar on Firefox */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
   }
 
-    .pricing-cards-container::-webkit-scrollbar {
+  .pricing-cards-container::-webkit-scrollbar {
     display: none;
+  }
+
+  .pricing-card {
+    min-width: 340px;
+    max-width: 340px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .pricing-card.highlighted {
@@ -1815,44 +2185,11 @@ background: url(images/cross-icon.png);
   }
 
   .pricing-card.highlighted:hover {
-    transform: translateY(-8px);
+    transform: scale(1.05) translateY(-8px);
   }
 }
 
-
-
-@media (max-width: 768px) {
-  .pricing-section {
-    padding: 60px 20px;
-  }
-
-  .pricing-title {
-    font-size: 36px;
-  }
-
-  .pricing-subtitle {
-    font-size: 16px;
-  }
-
-  .card-title {
-    font-size: 20px;
-  }
-
-  .price-amount {
-    font-size: 44px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .pricing-card {
-    /* Fixed width for each card */
-    min-width: 340px;
-    max-width: 340px;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-  }
-}
-
+/* Mobile landscape and smaller tablets */
 @media (max-width: 768px) {
   .pricing-section {
     padding: 60px 20px;
@@ -1885,20 +2222,29 @@ background: url(images/cross-icon.png);
   }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
   .pricing-card {
-    min-width: 208px;
-    max-width: 235px;
+    min-width: 230px;
+    max-width: 230px;
     padding: 32px 24px;
-    
   }
-  .best-plan-badge{
+
+  .best-plan-badge {
     width: 28%;
   }
-  .pricing-card.highlighted:hover{
-    box-shadow: none;
-      transform: scale(1.05) translateY(-8px);
 
+  .pricing-card.highlighted:hover {
+    box-shadow: none;
+    transform: scale(1.05) translateY(-8px);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+  .pricing-card {
+    min-width: 260px;
+    max-width: 260px;
   }
 }
 
@@ -2205,8 +2551,16 @@ background: url(images/cross-icon.png);
 
   .small-business-form {
     position: static;
-    max-width: 450px;
+    max-width: 550px;
     margin: 0 auto;
+  }
+
+   .form-card {
+    padding: 44px 36px;
+  }
+
+    .form-card-title {
+    font-size: 26px;
   }
 
   .small-business-content {
@@ -2246,14 +2600,60 @@ background: url(images/cross-icon.png);
     width: 35px;
     height: 35px;
   }
+
+    .small-business-form {
+    max-width: 500px;
+  }
+
+  .form-card {
+    padding: 40px 32px;
+  }
+
+  .form-card-title {
+    font-size: 24px;
+  }
+
+  .form-field {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+
+  .form-submit-button {
+    font-size: 17px;
+    padding: 16px 36px;
+  }
 }
 
 @media (max-width: 480px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .form-submit-button{
+  .form-card {
+    padding: 4px 45px;
+  }
+
+  .form-card-title {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+
+  .form-field {
+    padding: 15px 16px;
+    font-size: 15px;
+  }
+
+  .form-textarea-field {
+    min-height: 110px;
+  }
+
+  .form-submit-button {
     width: 78%;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+
+  .form-helper-text {
+    font-size: 13px;
   }
  
 }
