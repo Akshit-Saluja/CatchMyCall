@@ -759,7 +759,7 @@ body{
 /* App Buttons */
 .app-buttons-container {
   position: absolute;
-  top: 79%;
+  top: 84%;
   left: 69%;
   transform: translateX(-50%);
   display: flex;
@@ -795,7 +795,7 @@ body{
 /* Animations */
 .hero-arrow-animation {
   position: absolute;
-  bottom: 11%;
+  bottom: 5%;
   left: 68%;
   transform: translateX(-50%);
   z-index: 100;
@@ -1222,44 +1222,595 @@ body{
 
 
 /* Smart Call Routing Section */
-.smart-call-routing {
-  background-image: url("images/section-2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100dvh;
-  position: relative;
-  padding: 40px 80px;
-  display: flex;
-  flex-direction: column;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.text-wrapper-15 {
-  text-align: center;
-  background: linear-gradient(90deg, #CB93FF 0%, #56BEFF 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  font-size: 48px;
-  margin-top: 55px;
-  margin-bottom: 8px;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #0a0a1a;
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-.customize-how-your {
-  text-align: center;
-  max-width: 707px;
-  margin: 0 auto 0px;
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.80);
-  font-size: 17px;
-  line-height: 25px;
-  font-weight: 100;
+.section2-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    background-image: url('section2-images/section-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    max-height: 100dvh;
+}
+
+/* Header Styles */
+.section2-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section2-header h1 {
+    font-size: 64px;
+    font-weight: 400;
+    background: linear-gradient(90deg, #CB93FF 0%, #56BEFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.section2-header p {
+    font-size: 18px;
+    color: #a0a0b0;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Main Content */
+.section2-main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    /* margin-top: 60px; */
+}
+
+/* Left Side - Feature Cards */
+.section2-left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* padding-right: 40px; */
+}
+
+.section2-feature-card {
+   background: rgba(255, 255, 255, 0.10);
+    border: 2px solid rgba(255, 255, 255, 0.10);
+     border-radius: 120px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    max-width: 650px;
 }
 
 
+/* First card - left aligned */
+.section2-feature-card:nth-child(1) {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Second card - right aligned */
+.section2-feature-card:nth-child(2) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Third card - left aligned */
+.section2-feature-card:nth-child(3) {
+    margin-right: auto;
+    margin-left: 0;
+}
+.section2-feature-card:nth-child(4) {
+    margin-right: auto;
+    margin-left: 0;
+    display: none;
+}
+
+.section2-feature-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* border-radius: 24px; */
+    /* padding: 2px; */
+    /* background: linear-gradient(135deg, rgba(100, 150, 255, 0.4), rgba(150, 100, 255, 0.4)); */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.section2-feature-card.section2-active {
+    /* background: rgba(40, 40, 80, 0.8); */
+    border: 2.5px solid rgba(144, 201, 236, 0.56);
+    transform: scale(1.08);
+    box-shadow: 0px 20px 60px rgba(100, 120, 255, 0.3);
+}
+.section2-feature-card.section2-second.section2-active {
+    /* background: rgba(40, 40, 80, 0.8); */
+    border: 2.52px solid rgba(178, 144, 236, 0.40);
+  
+}
+.section2-feature-card.section2-active::before {
+    opacity: 1;
+}
+
+.section2-icon-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .section2-feature-card.section2-active .section2-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+} */
+
+.section2-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    /* border-radius: 12px; */
+}
+
+.section2-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.section2-card-content h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #90C9EC;
+    line-height: 1.3;
+}
+.section2-card-content.section2-second h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #B290EC;
+    line-height: 1.3;
+}
+
+.section2-card-content p {
+    font-size: 15px;
+    color: #a0a0c0;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Right Side */
+.section2-right-side {
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 700px; */
+}
+
+.section2-ai-image {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.section2-ai-image img {
+    max-width: 600px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 60px rgba(100, 100, 255, 0.3));
+}
+
+/* Status Cards */
+.section2-status-card {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.section2-status-card.section2-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Status 1 - Three Buttons in Circular Arc Formation */
+.section2-status1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section2-status1 .section2-status-item:nth-child(1) {
+    transform: translate(0, -80px);
+}
+
+.section2-status1 .section2-status-item:nth-child(2) {
+    transform: translate(-30px, 0);
+}
+
+.section2-status1 .section2-status-item:nth-child(3) {
+    transform: translate(0, 80px);
+}
+
+/* Status 1 - Three Buttons */
+.section2-status1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    right: 20%;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
+.section2-status1 .section2-status-item:nth-child(1) {
+    transform: translate(0, -40px);
+}
+
+.section2-status1 .section2-status-item:nth-child(2) {
+    transform: translate(-30px, 0);
+}
+
+.section2-status1 .section2-status-item:nth-child(3) {
+    transform: translate(0, 40px);
+}
+
+.section2-status-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #b0b0c0;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+
+.section2-status-icon {
+    width: 60px;
+    height: 60px;
+    /* border-radius: 14px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.section2-status-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Status 2 - AI Message */
+/* .section2-status2 {
+    background: rgba(30, 30, 60, 0.9);
+    border: 1px solid rgba(150, 150, 200, 0.3);
+    border-radius: 20px;
+    padding: 30px 40px;
+    backdrop-filter: blur(10px);
+    right: 20%;
+    top: 40%;
+    transform: translateY(-50%);
+} */
+.section2-status2 {
+    background-image: url("section2-images/audio-box.png");
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;     
+    border-radius: 20px;
+    padding: 30px 40px;
+    right: 20%;
+    top: 40%;
+    transform: translateY(-50%);
+}
+.section2-ai-message {
+    margin-bottom: 0;
+}
+
+.section2-ai-message p {
+    font-size: 18px;
+    color: #d0d0e0;
+    line-height: 1.6;
+    margin-bottom: 2px;
+}
+
+/* Audio Wave Container - Outside and Below Status2 */
+.section2-audio-wave-container {
+    position: absolute;
+    right: 20%;
+    top: 70%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.section2-audio-wave-container.section2-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.section2-audio-wave {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.section2-wave-bar {
+    width: 3px;
+    background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%);
+    border-radius: 2px;
+    animation: section2-wave 1s ease-in-out infinite;
+}
+
+.section2-wave-bar:nth-child(1) {
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.section2-wave-bar:nth-child(2) {
+    height: 15px;
+    animation-delay: 0.1s;
+}
+
+.section2-wave-bar:nth-child(3) {
+    height: 25px;
+    animation-delay: 0.2s;
+}
+
+.section2-wave-bar:nth-child(4) {
+    height: 18px;
+    animation-delay: 0.3s;
+}
+
+.section2-wave-bar:nth-child(5) {
+    height: 22px;
+    animation-delay: 0.4s;
+}
+
+@keyframes section2-wave {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.5);
+    }
+}
+
+/* Status 3 - Busy Calls Card */
+.section2-status3 {
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section2-busy-calls-gif {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+}
+
+.section2-toggle-switch {
+    width: 50px;
+    height: 28px;
+    background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+    border-radius: 14px;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.section2-toggle-slider {
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .section2-main-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .section2-left-side {
+        padding-right: 0;
+    }
+
+    .section2-feature-card {
+        max-width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .section2-right-side {
+        min-height: 500px;
+    }
+
+    .section2-status1,
+    .section2-status2,
+    .section2-status3,
+    .section2-audio-wave-container {
+        right: 10%;
+    }
+}
+
+/* MOBILE MODE - 768px and below */
+@media (max-width: 768px) {
+    .section2-container {
+        padding: 40px 20px;
+        min-height: 100vh;
+    }
+
+    .section2-header {
+        margin-bottom: 50px;
+    }
+
+    .section2-header h1 {
+        font-size: 42px;
+    }
+
+    .section2-header p {
+        font-size: 16px;
+    }
+
+    .section2-main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* SHOW left side (feature cards) in mobile */
+    .section2-left-side {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+        padding-right: 0;
+    }
+.section2-feature-card:nth-child(4) {
+    display: block;
+
+}
+.section2-last-image{
+    height: auto;
+    max-height: 200px;
+    width: auto;
+    max-width: 350px;
+}
+    /* HIDE right-side completely in mobile */
+    .section2-right-side {
+        display: none;
+    }
+
+    /* Feature cards styling for mobile */
+    .section2-feature-card {
+        max-width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background: rgba(255, 255, 255, 0.10);
+        border: 2px solid rgba(255, 255, 255, 0.10);
+        border-radius: 42px;
+        padding: 24px 32px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-direction: row;
+        width: 100%;
+        transition: none;
+    }
+
+    .section2-feature-card.section2-active {
+        border: 2.5px solid rgba(144, 201, 236, 0.56);
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    .section2-feature-card.section2-second.section2-active {
+        border: 2.52px solid rgba(178, 144, 236, 0.40);
+    }
+
+    .section2-icon-wrapper {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section2-icon {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        display: block;
+    }
+
+    .section2-card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .section2-card-content h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 4px;
+        color: #90C9EC;
+        line-height: 1.3;
+    }
+
+    .section2-card-content.section2-second h3 {
+        color: #B290EC;
+    }
+
+    .section2-card-content p {
+        font-size: 14px;
+        color: #a0a0c0;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* Remove all animations in mobile mode */
+    .section2-wave-bar {
+        animation: none !important;
+    }
+
+    .section2-busy-calls-card {
+        min-width: 280px;
+        padding: 20px;
+    }
+}
 
 
  /* Call History Section */
@@ -2017,7 +2568,7 @@ line-height: normal;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .cta-button.primary {
