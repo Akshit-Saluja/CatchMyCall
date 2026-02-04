@@ -1,0 +1,607 @@
+/* =====================================================
+   PRIVACY POLICY SECTION STYLES
+   ===================================================== */
+
+/* Import Rubik font (if not already imported in main CSS) */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* Main Privacy Policy Container */
+.privacy-policy-main {
+  background-color: #080713;
+  min-height: 100vh;
+  padding: 140px 80px 80px 80px;
+  font-family: "Rubik", sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  z-index: 1;
+}
+
+.privacy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* =====================================================
+   HEADER SECTION
+   ===================================================== */
+
+.privacy-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+}
+
+.privacy-main-title {
+  background: linear-gradient(90deg, #CB93FF 0%, #56BEFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Rubik", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+.privacy-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.privacy-meta p {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.privacy-meta .highlight {
+  color: #CB93FF;
+  font-weight: 400;
+}
+
+/* =====================================================
+   TABLE OF CONTENTS
+   ===================================================== */
+
+.privacy-toc {
+  background: linear-gradient(135deg, rgba(203, 147, 255, 0.05) 0%, rgba(86, 190, 255, 0.05) 100%);
+  border: 1px solid rgba(203, 147, 255, 0.2);
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin-bottom: 60px;
+  backdrop-filter: blur(10px);
+}
+
+.toc-title {
+  font-family: "Rubik", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 40px;
+  counter-reset: toc-counter;
+}
+
+.toc-list li {
+  counter-increment: toc-counter;
+  position: relative;
+}
+
+.toc-list li::before {
+  content: counter(toc-counter) ".";
+  color: #CB93FF;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.toc-list a {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.toc-list a:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+  text-shadow: 0 0 10px rgba(203, 147, 255, 0.5);
+}
+
+/* =====================================================
+   CONTENT SECTIONS
+   ===================================================== */
+
+.privacy-content {
+  line-height: 1.8;
+}
+
+.privacy-section {
+  margin-bottom: 60px;
+  scroll-margin-top: 140px;
+}
+
+.section-title {
+  font-family: "Rubik", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff !important;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(203, 147, 255, 0.3);
+  /* background: linear-gradient(90deg, rgba(203, 147, 255, 0.1) 0%, transparent 100%); */
+  padding-left: 20px;
+  margin-left: -20px;
+  border-radius: 4px 0 0 4px;
+  display: block;
+  position: relative;
+}
+
+.subsection-title {
+  font-family: "Rubik", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #ffffff !important;
+  margin: 32px 0 16px 0;
+  display: block;
+}
+
+.sub-subsection-title {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95) !important;
+  margin: 24px 0 12px 0;
+  display: block;
+}
+
+.privacy-section p {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+}
+
+.privacy-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 16px 0;
+}
+
+.privacy-section ul li {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.privacy-section ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #CB93FF;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.privacy-section strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.highlight-text {
+  color: #CB93FF;
+  font-weight: 400;
+}
+
+/* =====================================================
+   NOTICE BOXES
+   ===================================================== */
+
+.notice-box {
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 24px 0;
+  border-left: 4px solid;
+}
+
+.notice-box.important {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.08) 0%, rgba(255, 107, 107, 0.03) 100%);
+  border-left-color: #ff6b6b;
+}
+
+.notice-box.warning {
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.08) 0%, rgba(255, 184, 0, 0.03) 100%);
+  border-left-color: #ffb800;
+}
+
+.notice-box.info {
+  background: linear-gradient(135deg, rgba(86, 190, 255, 0.08) 0%, rgba(86, 190, 255, 0.03) 100%);
+  border-left-color: #56BEFF;
+}
+
+.notice-title {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.notice-box p {
+  margin-bottom: 12px;
+}
+
+.notice-box p:last-child {
+  margin-bottom: 0;
+}
+
+.notice-box ul {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   INFO BOXES
+   ===================================================== */
+
+.info-box {
+  background: linear-gradient(135deg, rgba(203, 147, 255, 0.05) 0%, rgba(86, 190, 255, 0.05) 100%);
+  border: 1px solid rgba(203, 147, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.info-box p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.disclosure-text {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 3px solid #CB93FF;
+  margin: 16px 0;
+}
+
+/* =====================================================
+   TABLES
+   ===================================================== */
+
+.table-container {
+  overflow-x: auto;
+  margin: 24px 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(203, 147, 255, 0.03) 0%, rgba(86, 190, 255, 0.03) 100%);
+  padding: 2px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Rubik", sans-serif;
+  font-size: 15px;
+}
+
+.data-table thead {
+  background: linear-gradient(135deg, rgba(203, 147, 255, 0.15) 0%, rgba(86, 190, 255, 0.15) 100%);
+}
+
+.data-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 500;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(203, 147, 255, 0.3);
+}
+
+.data-table td {
+  padding: 14px 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(203, 147, 255, 0.05);
+  transition: background 0.2s ease;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =====================================================
+   CONTACT SECTION
+   ===================================================== */
+
+.contact-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.contact-item-privacy {
+  background: linear-gradient(135deg, rgba(203, 147, 255, 0.05) 0%, rgba(86, 190, 255, 0.05) 100%);
+  border: 1px solid rgba(203, 147, 255, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.contact-item-privacy:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(203, 147, 255, 0.2);
+  border-color: rgba(203, 147, 255, 0.4);
+}
+
+.contact-item-privacy i {
+  font-size: 24px;
+  color: #CB93FF;
+  margin-top: 4px;
+}
+
+.contact-item-privacy h4 {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.contact-item-privacy p {
+  font-family: "Rubik", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.contact-item-privacy a {
+  color: #56BEFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item-privacy a:hover {
+  color: #CB93FF;
+  text-decoration: underline;
+}
+
+.response-time {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+}
+
+/* =====================================================
+   ACKNOWLEDGMENT SECTION
+   ===================================================== */
+
+.acknowledgment-section {
+  background: linear-gradient(135deg, rgba(203, 147, 255, 0.08) 0%, rgba(86, 190, 255, 0.08) 100%);
+  border: 1px solid rgba(203, 147, 255, 0.3);
+  border-radius: 16px;
+  padding: 40px;
+  margin-top: 80px;
+}
+
+.acknowledgment-box {
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #CB93FF;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.acknowledgment-box h3 {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.acknowledgment-box p {
+  margin: 0;
+}
+
+.questions-box {
+  background: linear-gradient(135deg, rgba(86, 190, 255, 0.1) 0%, rgba(203, 147, 255, 0.1) 100%);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.questions-box h3 {
+  font-family: "Rubik", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.questions-box a {
+  color: #56BEFF;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.questions-box a:hover {
+  color: #CB93FF;
+  text-decoration: underline;
+}
+
+/* =====================================================
+   DOCUMENT INFO
+   ===================================================== */
+
+.document-info {
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.document-info p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 8px 0;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media screen and (max-width: 1024px) {
+  .privacy-policy-main {
+    padding: 120px 40px 60px 40px;
+  }
+
+  .privacy-main-title {
+    font-size: 45px;
+  }
+
+  .toc-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .privacy-policy-main {
+    padding: 100px 24px 40px 24px;
+  }
+
+  .privacy-main-title {
+    font-size: 34px;
+  }
+
+  .privacy-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .privacy-toc {
+    padding: 24px 20px;
+  }
+
+  .toc-title {
+    font-size: 24px;
+  }
+
+  .toc-list a {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    padding-left: 16px;
+    margin-left: -16px;
+  }
+
+  .subsection-title {
+    font-size: 22px;
+  }
+
+  .sub-subsection-title {
+    font-size: 18px;
+  }
+
+  .privacy-section p,
+  .privacy-section ul li {
+    font-size: 15px;
+  }
+
+  .notice-box {
+    padding: 20px 20px;
+  }
+
+  .table-container {
+    margin: 20px -24px;
+    border-radius: 0;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .contact-card {
+    gap: 16px;
+  }
+
+  .acknowledgment-section {
+    padding: 28px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .privacy-policy-main {
+    padding: 90px 16px 32px 16px;
+  }
+
+  .privacy-main-title {
+    font-size: 30px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .subsection-title {
+    font-size: 20px;
+  }
+
+  .privacy-section p,
+  .privacy-section ul li {
+    font-size: 14px;
+  }
+}

@@ -1,7 +1,7 @@
 // Animation states configuration
 let currentState = 0;
 const totalStates = 3;
-const animationDuration = 2000; // 4 seconds per state
+const animationDuration = 3000; //3 seconds
 
 // Get all elements
 const cards = {
