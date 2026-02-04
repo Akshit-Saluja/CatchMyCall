@@ -250,7 +250,7 @@
 
 
     <!-- hero section -->
-    <section class="hero" id="home">
+   <section class="hero" id="home">
       <div class="hero-text-container">
         <h1 class="text-wrapper-7">Your Personal Call Assistant</h1>
         <p class="hero-subtitle" id="heroSubtitle">
@@ -290,10 +290,10 @@
 
       </div>
       <div class="app-buttons-container">
-        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="appstoree" aria-label="Get on Appstore">
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="appstoree" id="heroAppStoreButton" aria-label="Get on Appstore">
           <img src="images/appstore-btn.png" alt="Download on App Store" />
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="playstoree"
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="playstoree" id="heroPlayStoreButton"
           aria-label="Get on Playstore">
           <img src="images/playstore-btn.png" alt="Download on Play Store" />
         </a>
@@ -310,9 +310,83 @@
 
       </div>
 
-
-
     </section>
+
+    <!-- Hero Section - Device OS Detection Script -->
+    <script>
+      console.log("🦸 Hero Section: Device OS detection script starting...");
+
+      function detectHeroSectionDeviceOS() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+        console.log("🔍 Hero Section - User Agent:", userAgent);
+
+        let detectedOS = null;
+
+        // iOS Detection
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          detectedOS = 'iOS';
+          console.log("✅ Hero Section - Device detected: iOS");
+        } 
+        // Android Detection
+        else if (/Android/.test(userAgent)) {
+          detectedOS = 'Android';
+          console.log("✅ Hero Section - Device detected: Android");
+        } 
+        // Fallback - Not mobile or unknown
+        else {
+          detectedOS = 'Unknown';
+          console.log("⚠️ Hero Section - Device detected: Unknown (possibly desktop)");
+        }
+
+        return detectedOS;
+      }
+
+      function conditionallyDisplayHeroAppButtons() {
+        const heroAppStoreButton = document.getElementById("heroAppStoreButton");
+        const heroPlayStoreButton = document.getElementById("heroPlayStoreButton");
+
+        if (!heroAppStoreButton || !heroPlayStoreButton) {
+          console.error("❌ Hero app store buttons not found!");
+          console.error("  - heroAppStoreButton:", !!heroAppStoreButton);
+          console.error("  - heroPlayStoreButton:", !!heroPlayStoreButton);
+          return;
+        }
+
+        console.log("📋 Hero buttons found and ready");
+
+        const deviceOS = detectHeroSectionDeviceOS();
+
+        // Show/Hide buttons based on device OS
+        if (deviceOS === 'iOS') {
+          heroAppStoreButton.style.display = 'inline-block';
+          heroPlayStoreButton.style.display = 'none';
+          console.log("📲 Hero Section - Showing: App Store button only");
+        } else if (deviceOS === 'Android') {
+          heroAppStoreButton.style.display = 'none';
+          heroPlayStoreButton.style.display = 'inline-block';
+          console.log("📲 Hero Section - Showing: Play Store button only");
+        } else {
+          // Unknown device - show both buttons (desktop or web view)
+          heroAppStoreButton.style.display = 'inline-block';
+          heroPlayStoreButton.style.display = 'inline-block';
+          console.log("📲 Hero Section - Device unknown - Showing: Both buttons");
+        }
+
+        console.log("✅ Hero app buttons conditional display completed!");
+      }
+
+      // Execute conditional display on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', conditionallyDisplayHeroAppButtons);
+        console.log("⏳ Hero Section - DOM loading - will execute on DOMContentLoaded");
+      } else {
+        // DOM is already loaded
+        conditionallyDisplayHeroAppButtons();
+        console.log("✅ Hero Section - DOM already loaded - executed immediately");
+      }
+
+    </script>
 
 
 
@@ -1172,7 +1246,7 @@
 
 
     <!-- Download App Section -->
-    <section class="download-app-section">
+  <section class="download-app-section">
       <div class="download-app-container">
         <div class="download-card">
 
@@ -1189,11 +1263,11 @@
           </div>
 
           <div class="app-store-buttons">
-            <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link"
+            <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="downloadAppStoreButton"
               aria-label="Download on App Store">
               <img src="images/app-store-button.png" alt="Download on App Store">
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="app-store-link"
+            <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="app-store-link" id="downloadPlayStoreButton"
               aria-label="Get on Google Play">
               <img src="images/google-play-button.png" alt="Get it on Google Play">
             </a>
@@ -1203,6 +1277,82 @@
       </div>
 
     </section>
+
+    <!-- Download App Section - Device OS Detection Script -->
+    <script>
+      console.log("🎯 Download App Section: Device OS detection script starting...");
+
+      function detectDownloadSectionDeviceOS() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+        console.log("🔍 Download Section - User Agent:", userAgent);
+
+        let detectedOS = null;
+
+        // iOS Detection
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          detectedOS = 'iOS';
+          console.log("✅ Download Section - Device detected: iOS");
+        } 
+        // Android Detection
+        else if (/Android/.test(userAgent)) {
+          detectedOS = 'Android';
+          console.log("✅ Download Section - Device detected: Android");
+        } 
+        // Fallback - Not mobile or unknown
+        else {
+          detectedOS = 'Unknown';
+          console.log("⚠️ Download Section - Device detected: Unknown (possibly desktop)");
+        }
+
+        return detectedOS;
+      }
+
+      function conditionallyDisplayDownloadAppButtons() {
+        const downloadAppStoreButton = document.getElementById("downloadAppStoreButton");
+        const downloadPlayStoreButton = document.getElementById("downloadPlayStoreButton");
+
+        if (!downloadAppStoreButton || !downloadPlayStoreButton) {
+          console.error("❌ Download app store buttons not found!");
+          console.error("  - downloadAppStoreButton:", !!downloadAppStoreButton);
+          console.error("  - downloadPlayStoreButton:", !!downloadPlayStoreButton);
+          return;
+        }
+
+        console.log("📋 Download buttons found and ready");
+
+        const deviceOS = detectDownloadSectionDeviceOS();
+
+        // Show/Hide buttons based on device OS
+        if (deviceOS === 'iOS') {
+          downloadAppStoreButton.style.display = 'inline-block';
+          downloadPlayStoreButton.style.display = 'none';
+          console.log("📲 Download Section - Showing: App Store button only");
+        } else if (deviceOS === 'Android') {
+          downloadAppStoreButton.style.display = 'none';
+          downloadPlayStoreButton.style.display = 'inline-block';
+          console.log("📲 Download Section - Showing: Play Store button only");
+        } else {
+          // Unknown device - show both buttons (desktop or web view)
+          downloadAppStoreButton.style.display = 'inline-block';
+          downloadPlayStoreButton.style.display = 'inline-block';
+          console.log("📲 Download Section - Device unknown - Showing: Both buttons");
+        }
+
+        console.log("✅ Download app buttons conditional display completed!");
+      }
+
+      // Execute conditional display on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', conditionallyDisplayDownloadAppButtons);
+        console.log("⏳ Download Section - DOM loading - will execute on DOMContentLoaded");
+      } else {
+        // DOM is already loaded
+        conditionallyDisplayDownloadAppButtons();
+        console.log("✅ Download Section - DOM already loaded - executed immediately");
+      }
+
+    </script>
 
 
     <!-- footer  -->
