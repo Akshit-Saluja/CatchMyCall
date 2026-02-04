@@ -12,6 +12,58 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+    /* Error Message Alert Styles */
+    .error-message-alert {
+      display: none;
+      background-color: #ff4444;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-family: "Rubik", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Success Message Styles (if not already defined) */
+    .success-message {
+      display: none;
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-family: "Rubik", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      animation: slideDown 0.3s ease;
+    }
+
+    /* Error Message Styles (for individual field errors) */
+    .error-message {
+      display: none;
+      color: #ff4444;
+      font-family: "Rubik", sans-serif;
+      font-size: 12px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
   </style>
 
 </head>
@@ -31,7 +83,7 @@
 
   </div>
 
-<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
 
     <div class="mobile-nav-content">
 
@@ -46,8 +98,10 @@
       </div>
 
       <div class="mobile-app-buttons">
-        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="appStoreButton"><img src="images/Group 48099465.png"></a>
-        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="play-store-link" id="playStoreButton"><img src="images/Group 48099464.png"></a>
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="appStoreButton"><img
+            src="images/Group 48099465.png"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="play-store-link"
+          id="playStoreButton"><img src="images/Group 48099464.png"></a>
       </div>
 
     </div>
@@ -149,7 +203,7 @@
 
     function detectDeviceOS() {
       const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      
+
       console.log("🔍 User Agent:", userAgent);
 
       let detectedOS = null;
@@ -158,12 +212,12 @@
       if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
         detectedOS = 'iOS';
         console.log("✅ Device detected: iOS");
-      } 
+      }
       // Android Detection
       else if (/Android/.test(userAgent)) {
         detectedOS = 'Android';
         console.log("✅ Device detected: Android");
-      } 
+      }
       // Fallback - Not mobile or unknown
       else {
         detectedOS = 'Unknown';
@@ -250,7 +304,7 @@
 
 
     <!-- hero section -->
-   <section class="hero" id="home">
+    <section class="hero" id="home">
       <div class="hero-text-container">
         <h1 class="text-wrapper-7">Your Personal Call Assistant</h1>
         <p class="hero-subtitle" id="heroSubtitle">
@@ -290,11 +344,12 @@
 
       </div>
       <div class="app-buttons-container">
-        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="appstoree" id="heroAppStoreButton" aria-label="Get on Appstore">
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="appstoree" id="heroAppStoreButton"
+          aria-label="Get on Appstore">
           <img src="images/appstore-btn.png" alt="Download on App Store" />
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="playstoree" id="heroPlayStoreButton"
-          aria-label="Get on Playstore">
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="playstoree"
+          id="heroPlayStoreButton" aria-label="Get on Playstore">
           <img src="images/playstore-btn.png" alt="Download on Play Store" />
         </a>
       </div>
@@ -318,7 +373,7 @@
 
       function detectHeroSectionDeviceOS() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
+
         console.log("🔍 Hero Section - User Agent:", userAgent);
 
         let detectedOS = null;
@@ -327,12 +382,12 @@
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
           detectedOS = 'iOS';
           console.log("✅ Hero Section - Device detected: iOS");
-        } 
+        }
         // Android Detection
         else if (/Android/.test(userAgent)) {
           detectedOS = 'Android';
           console.log("✅ Hero Section - Device detected: Android");
-        } 
+        }
         // Fallback - Not mobile or unknown
         else {
           detectedOS = 'Unknown';
@@ -884,6 +939,10 @@
               ✓ Thank you! Your details have been submitted successfully.
             </div>
 
+            <div class="error-message-alert" id="smallBusinessErrorMessage">
+              ⚠ Error submitting form. Please try again.
+            </div>
+
             <form id="smallBusinessForm">
               <div class="form-input-group">
                 <input type="text" id="sbFullName" class="form-field" placeholder="Enter your full name" required>
@@ -896,6 +955,12 @@
               </div>
 
               <div class="form-input-group">
+                <input type="tel" id="sbMobileNumber" class="form-field" placeholder="Enter your mobile number" required
+                  pattern="[0-9]{10}" maxlength="10">
+                <div class="error-message" id="sbMobileError">Please enter a valid 10-digit mobile number</div>
+              </div>
+
+              <div class="form-input-group">
                 <select id="sbProfession" class="form-field form-dropdown" required>
                   <option value="">Select your profession</option>
                   <option value="individual">Individual</option>
@@ -903,6 +968,7 @@
                   <option value="business-owner">Business Owner</option>
                   <option value="entrepreneur">Entrepreneur</option>
                   <option value="freelancer">Freelancer</option>
+                  <option value="sales">Sales</option>
                   <option value="other">Other</option>
                 </select>
                 <div class="error-message" id="sbProfessionError">Please select your profession</div>
@@ -991,6 +1057,259 @@
         </div>
       </div>
     </section>
+
+    <!-- Small Business Form API Integration Script -->
+    <script>
+      console.log("📝 Small Business Form: API Integration script starting...");
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('smallBusinessForm');
+        const submitBtn = document.getElementById('sbSubmitBtn');
+        const successMessage = document.getElementById('smallBusinessSuccessMessage');
+        const errorMessageAlert = document.getElementById('smallBusinessErrorMessage');
+
+        // Form fields
+        const nameField = document.getElementById('sbFullName');
+        const emailField = document.getElementById('sbEmail');
+        const mobileField = document.getElementById('sbMobileNumber');
+        const professionField = document.getElementById('sbProfession');
+        const messageField = document.getElementById('sbMessage');
+
+        // Error message elements
+        const nameError = document.getElementById('sbNameError');
+        const emailError = document.getElementById('sbEmailError');
+        const mobileError = document.getElementById('sbMobileError');
+        const professionError = document.getElementById('sbProfessionError');
+        const messageError = document.getElementById('sbMessageError');
+
+        console.log("✅ Form elements loaded successfully");
+
+        // Hide all error messages and alerts initially
+        function hideAllErrors() {
+          nameError.style.display = 'none';
+          emailError.style.display = 'none';
+          mobileError.style.display = 'none';
+          professionError.style.display = 'none';
+          messageError.style.display = 'none';
+          successMessage.style.display = 'none';
+          errorMessageAlert.style.display = 'none';
+        }
+
+        // Validate email format
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+
+        // Validate mobile number (10 digits)
+        function isValidMobile(mobile) {
+          const mobileRegex = /^[0-9]{10}$/;
+          return mobileRegex.test(mobile);
+        }
+
+        // Form validation
+        function validateForm() {
+          let isValid = true;
+          hideAllErrors();
+
+          // Validate name
+          if (!nameField.value.trim()) {
+            nameError.style.display = 'block';
+            isValid = false;
+          }
+
+          // Validate email
+          if (!emailField.value.trim()) {
+            emailError.textContent = 'Please enter your email address';
+            emailError.style.display = 'block';
+            isValid = false;
+          } else if (!isValidEmail(emailField.value.trim())) {
+            emailError.textContent = 'Please enter a valid email address';
+            emailError.style.display = 'block';
+            isValid = false;
+          }
+
+          // Validate mobile number
+          if (!mobileField.value.trim()) {
+            mobileError.textContent = 'Please enter your mobile number';
+            mobileError.style.display = 'block';
+            isValid = false;
+          } else if (!isValidMobile(mobileField.value.trim())) {
+            mobileError.textContent = 'Please enter a valid 10-digit mobile number';
+            mobileError.style.display = 'block';
+            isValid = false;
+          }
+
+          // Validate profession
+          if (!professionField.value) {
+            professionError.style.display = 'block';
+            isValid = false;
+          }
+
+          // Validate message
+          if (!messageField.value.trim()) {
+            messageError.style.display = 'block';
+            isValid = false;
+          }
+
+          return isValid;
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          console.log("🚀 Form submission initiated");
+
+          // Validate form
+          if (!validateForm()) {
+            console.log("❌ Form validation failed");
+            return;
+          }
+
+          // Prepare payload
+          const payload = {
+            name: nameField.value.trim(),
+            email: emailField.value.trim(),
+            mobileNumber: mobileField.value.trim(),
+            profession: professionField.value,
+            message: messageField.value.trim()
+          };
+
+          console.log("📦 Payload prepared:", payload);
+
+          // Disable submit button and show loading state
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+
+          try {
+            // Make API call
+            console.log("🌐 Making API call to contact-us endpoint...");
+            const response = await fetch('http://13.201.248.58:8080/api/feedback/contact-us', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(payload)
+            });
+
+            console.log("📡 Response received, status:", response.status);
+
+            const data = await response.json();
+            console.log("📊 Response data:", data);
+
+            // Handle response based on code
+            if (data.code === 10001 && data.result === 'success') {
+              // Success response
+              console.log("✅ Success:", data.output);
+              successMessage.textContent = '✓ ' + data.output;
+              successMessage.style.display = 'block';
+
+              // Reset form
+              form.reset();
+
+              // Hide success message after 5 seconds
+              setTimeout(() => {
+                successMessage.style.display = 'none';
+              }, 5000);
+
+            } else if (data.code === 20000) {
+              // Feedback already submitted
+              console.log("⚠️ Warning:", data.msg);
+              errorMessageAlert.textContent = '⚠ ' + data.msg;
+              errorMessageAlert.style.display = 'block';
+
+              // Hide error message after 5 seconds
+              setTimeout(() => {
+                errorMessageAlert.style.display = 'none';
+              }, 5000);
+
+            } else {
+              // Other error responses
+              console.log("❌ Error response:", data);
+              errorMessageAlert.textContent = '⚠ ' + (data.msg || 'Error submitting form. Please try again.');
+              errorMessageAlert.style.display = 'block';
+
+              // Hide error message after 5 seconds
+              setTimeout(() => {
+                errorMessageAlert.style.display = 'none';
+              }, 5000);
+            }
+
+          } catch (error) {
+            console.error("❌ API call failed:", error);
+            errorMessageAlert.textContent = '⚠ Network error. Please check your connection and try again.';
+            errorMessageAlert.style.display = 'block';
+
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+              errorMessageAlert.style.display = 'none';
+            }, 5000);
+
+          } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Details';
+            console.log("🔄 Form submission process completed");
+          }
+        });
+
+        // Real-time validation on blur
+        nameField.addEventListener('blur', function () {
+          if (!this.value.trim()) {
+            nameError.style.display = 'block';
+          } else {
+            nameError.style.display = 'none';
+          }
+        });
+
+        emailField.addEventListener('blur', function () {
+          if (!this.value.trim()) {
+            emailError.textContent = 'Please enter your email address';
+            emailError.style.display = 'block';
+          } else if (!isValidEmail(this.value.trim())) {
+            emailError.textContent = 'Please enter a valid email address';
+            emailError.style.display = 'block';
+          } else {
+            emailError.style.display = 'none';
+          }
+        });
+
+        mobileField.addEventListener('blur', function () {
+          if (!this.value.trim()) {
+            mobileError.textContent = 'Please enter your mobile number';
+            mobileError.style.display = 'block';
+          } else if (!isValidMobile(this.value.trim())) {
+            mobileError.textContent = 'Please enter a valid 10-digit mobile number';
+            mobileError.style.display = 'block';
+          } else {
+            mobileError.style.display = 'none';
+          }
+        });
+
+        professionField.addEventListener('blur', function () {
+          if (!this.value) {
+            professionError.style.display = 'block';
+          } else {
+            professionError.style.display = 'none';
+          }
+        });
+
+        messageField.addEventListener('blur', function () {
+          if (!this.value.trim()) {
+            messageError.style.display = 'block';
+          } else {
+            messageError.style.display = 'none';
+          }
+        });
+
+        // Only allow numbers in mobile field
+        mobileField.addEventListener('input', function (e) {
+          this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        console.log("✅ Small Business Form API integration initialized successfully!");
+      });
+    </script>
 
 
     <!-- Testimonials Section -->
@@ -1246,7 +1565,7 @@
 
 
     <!-- Download App Section -->
-  <section class="download-app-section">
+    <section class="download-app-section">
       <div class="download-app-container">
         <div class="download-card">
 
@@ -1263,12 +1582,12 @@
           </div>
 
           <div class="app-store-buttons">
-            <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="downloadAppStoreButton"
-              aria-label="Download on App Store">
+            <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link"
+              id="downloadAppStoreButton" aria-label="Download on App Store">
               <img src="images/app-store-button.png" alt="Download on App Store">
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="app-store-link" id="downloadPlayStoreButton"
-              aria-label="Get on Google Play">
+            <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="app-store-link"
+              id="downloadPlayStoreButton" aria-label="Get on Google Play">
               <img src="images/google-play-button.png" alt="Get it on Google Play">
             </a>
           </div>
@@ -1284,7 +1603,7 @@
 
       function detectDownloadSectionDeviceOS() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
+
         console.log("🔍 Download Section - User Agent:", userAgent);
 
         let detectedOS = null;
@@ -1293,12 +1612,12 @@
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
           detectedOS = 'iOS';
           console.log("✅ Download Section - Device detected: iOS");
-        } 
+        }
         // Android Detection
         else if (/Android/.test(userAgent)) {
           detectedOS = 'Android';
           console.log("✅ Download Section - Device detected: Android");
-        } 
+        }
         // Fallback - Not mobile or unknown
         else {
           detectedOS = 'Unknown';
