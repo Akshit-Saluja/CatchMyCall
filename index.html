@@ -10,9 +10,9 @@
   <!-- <link rel="stylesheet" href="globals.css" /> -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-</style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+  </style>
 
 </head>
 
@@ -47,13 +47,103 @@
       </div>
 
       <div class="mobile-app-buttons">
-        <a href="#"><img src="images/Group 48099465.png"></a>
-        <a href="#"><img src="images/Group 48099464.png"></a>
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479"><img src="images/Group 48099465.png"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall"><img
+            src="images/Group 48099464.png"></a>
       </div>
 
     </div>
 
   </div>
+
+  <!-- Mobile Navigation Script - Direct Implementation -->
+  <script>
+    console.log("🚀 Mobile Navigation: Inline script starting...");
+
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+    console.log("📋 Elements check:");
+    console.log("  - hamburgerMenu:", hamburgerMenu);
+    console.log("  - mobileNavOverlay:", mobileNavOverlay);
+    console.log("  - mobileNavLinks:", mobileNavLinks.length);
+
+    if (!hamburgerMenu || !mobileNavOverlay) {
+      console.error("❌ Required elements not found!");
+      console.error("  - hamburgerMenu:", !!hamburgerMenu);
+      console.error("  - mobileNavOverlay:", !!mobileNavOverlay);
+    } else {
+      const hamburgerIcon = hamburgerMenu.querySelector("i");
+      console.log("  - hamburgerIcon:", hamburgerIcon);
+
+      // Toggle menu on hamburger click
+      hamburgerMenu.addEventListener("click", function () {
+        console.log("🖱️ Hamburger clicked!");
+        console.log("  - Before toggle:", mobileNavOverlay.className);
+
+        // Toggle active class
+        mobileNavOverlay.classList.toggle("active");
+
+        console.log("  - After toggle:", mobileNavOverlay.className);
+        console.log("  - Has active class:", mobileNavOverlay.classList.contains("active"));
+
+        // Switch icon and lock body scroll
+        if (mobileNavOverlay.classList.contains("active")) {
+          console.log("✅ Opening menu");
+          hamburgerIcon.classList.remove("fa-bars");
+          hamburgerIcon.classList.add("fa-xmark");
+          document.body.style.overflow = "hidden";
+        } else {
+          console.log("❌ Closing menu");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+        }
+
+        // Log computed styles
+        const styles = window.getComputedStyle(mobileNavOverlay);
+        console.log("📊 Overlay computed styles:");
+        console.log("  - display:", styles.display);
+        console.log("  - opacity:", styles.opacity);
+        console.log("  - visibility:", styles.visibility);
+        console.log("  - z-index:", styles.zIndex);
+        console.log("  - position:", styles.position);
+        console.log("  - top:", styles.top);
+        console.log("  - left:", styles.left);
+        console.log("  - width:", styles.width);
+        console.log("  - height:", styles.height);
+      });
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          console.log("🔗 Nav link clicked");
+          mobileNavOverlay.classList.remove("active");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+
+          // Update active state
+          mobileNavLinks.forEach(l => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Close when clicking outside content
+      mobileNavOverlay.addEventListener("click", function (e) {
+        if (e.target === mobileNavOverlay) {
+          console.log("🖱️ Clicked outside, closing menu");
+          mobileNavOverlay.classList.remove("active");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+        }
+      });
+
+      console.log("✅ Mobile navigation initialized successfully!");
+    }
+  </script>
 
 
   <div class="catchmycall-website">
@@ -73,13 +163,15 @@
             <a href="#small-business" class="nav-link">Small Business</a>
 
             <div class="nav-app-buttons">
-  <a href="#" class="nav-app-btn" aria-label="Download on App Store">
-    <img src="images/apple-icon.png" alt="App Store" class="app-icon">
-  </a>
-  <a href="#" class="nav-app-btn" aria-label="Get on Google Play">
-    <img src="images/google-play-icon.png" alt="Play Store" class="app-icon">
-  </a>
-</div>
+              <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="nav-app-btn"
+                aria-label="Download on App Store">
+                <img src="images/apple-icon.png" alt="App Store" class="app-icon">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="nav-app-btn"
+                aria-label="Get on Google Play">
+                <img src="images/google-play-icon.png" alt="Play Store" class="app-icon">
+              </a>
+            </div>
           </div>
         </nav>
       </div>
@@ -130,10 +222,11 @@
 
       </div>
       <div class="app-buttons-container">
-        <a href="#" class="appstoree" aria-label="Get on Appstore">
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="appstoree" aria-label="Get on Appstore">
           <img src="images/appstore-btn.png" alt="Download on App Store" />
         </a>
-        <a href="#" class="playstoree" aria-label="Get on Playstore">
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="playstoree"
+          aria-label="Get on Playstore">
           <img src="images/playstore-btn.png" alt="Download on Play Store" />
         </a>
       </div>
@@ -157,110 +250,112 @@
 
     <!-- Smart Call Routing  -->
     <section class="smart-call-routing" id="product-features">
-     
-    <div class="section2-container">
+
+      <div class="section2-container">
         <!-- Header Section -->
         <div class="section2-header">
-            <h1>Smart Call Routing</h1>
-            <p>Customize how your calls are handled when you're busy, unreachable, or just don't want to pick up. Catch My Call gives you full control.</p>
+          <h1>Smart Call Routing</h1>
+          <p>Customize how your calls are handled when you're busy, unreachable, or just don't want to pick up. Catch My
+            Call gives you full control.</p>
         </div>
 
         <!-- Main Content -->
         <div class="section2-main-content">
-            <!-- Left Side - Feature Cards -->
-            <div class="section2-left-side">
-                <div class="section2-feature-card" id="card1">
-                    <div class="section2-icon-wrapper">
-                        <img class="section2-icon" src="section2-images/section2-icon1.png" alt="Dynamic Call Handling">
-                    </div>
-                    <div class="section2-card-content">
-                        <h3>Dynamic Call Handling</h3>
-                        <p>Choose who your AI should talk to and when missed, buy, or no answer.</p>
-                    </div>
-                </div>
+          <!-- Left Side - Feature Cards -->
+          <div class="section2-left-side">
+            <div class="section2-feature-card" id="card1">
+              <div class="section2-icon-wrapper">
+                <img class="section2-icon" src="section2-images/section2-icon1.png" alt="Dynamic Call Handling">
+              </div>
+              <div class="section2-card-content">
+                <h3>Dynamic Call Handling</h3>
+                <p>Choose who your AI should talk to and when missed, buy, or no answer.</p>
+              </div>
+            </div>
 
-                <div class="section2-feature-card section2-second" id="card2">
-                    <div class="section2-icon-wrapper section2-purple">
-                        <img class="section2-icon" src="section2-images/section2-icon2.png" alt="Personalized AI Responses">
-                    </div>
-                    <div class="section2-card-content section2-second">
-                        <h3>Personalized AI Responses</h3>
-                        <p>Craft how your AI talks—professional, friendly, or straight to the point.</p>
-                    </div>
-                </div>
+            <div class="section2-feature-card section2-second" id="card2">
+              <div class="section2-icon-wrapper section2-purple">
+                <img class="section2-icon" src="section2-images/section2-icon3.png" alt="Personalized AI Responses">
+              </div>
+              <div class="section2-card-content section2-second">
+                <h3>Personalized AI Responses</h3>
+                <p>Craft how your AI talks—professional, friendly, or straight to the point.</p>
+              </div>
+            </div>
 
-                <div class="section2-feature-card" id="card3">
-                    <div class="section2-icon-wrapper">
-                        <img class="section2-icon" src="section2-images/section2-icon3.png" alt="Real-Time Call Control">
-                    </div>
-                    <div class="section2-card-content">
-                        <h3>Real-Time Call Control</h3>
-                        <p>Adjust your settings anytime from the home dashboard for full flexibility.</p>
-                    </div>
-                </div>
-                <!-- <div class="section2-feature-card-last" id="card4">
+            <div class="section2-feature-card" id="card3">
+              <div class="section2-icon-wrapper">
+                <img class="section2-icon" src="section2-images/section2-icon2.png" alt="Real-Time Call Control">
+              </div>
+              <div class="section2-card-content">
+                <h3>Real-Time Call Control</h3>
+                <p>Adjust your settings anytime from the home dashboard for full flexibility.</p>
+              </div>
+            </div>
+            <!-- <div class="section2-feature-card-last" id="card4">
                 
                         <img class="section2-last-image" src="dynamic-call-handling-half.jpg" alt="Real-Time Call Control">
                 </div> -->
 
+          </div>
+
+          <!-- Right Side - Status Cards -->
+          <div class="section2-right-side">
+            <!-- Status 1 - Three buttons -->
+            <div class="section2-status-card section2-status1 section2-active">
+
+              <div class="section2-status-item">
+                <div class="section2-status-icon section2-green">
+                  <img src="section2-images/busy-calls-icon.png" alt="Busy">
+                </div>
+                <span>Busy</span>
+              </div>
+
+              <div class="section2-status-item">
+                <div class="section2-status-icon section2-purple">
+                  <img src="section2-images/not-reachable-icon.png" alt="Not Reachable">
+                </div>
+                <span>Not Reachable</span>
+              </div>
+
+              <div class="section2-status-item">
+                <div class="section2-status-icon section2-orange">
+                  <img src="section2-images/no-answer-icon.png" alt="No Answer">
+                </div>
+                <span>No Answer</span>
+              </div>
+
             </div>
 
-            <!-- Right Side - Status Cards -->
-            <div class="section2-right-side">
-                <!-- Status 1 - Three buttons -->
-              <div class="section2-status-card section2-status1 section2-active">
 
-    <div class="section2-status-item">
-        <div class="section2-status-icon section2-green">
-            <img src="section2-images/busy-calls-icon.png" alt="Busy">
-        </div>
-        <span>Busy</span>
-    </div>
-
-    <div class="section2-status-item">
-        <div class="section2-status-icon section2-purple">
-            <img src="section2-images/not-reachable-icon.png" alt="Not Reachable">
-        </div>
-        <span>Not Reachable</span>
-    </div>
-
-    <div class="section2-status-item">
-        <div class="section2-status-icon section2-orange">
-            <img src="section2-images/no-answer-icon.png" alt="No Answer">
-        </div>
-        <span>No Answer</span>
-    </div>
-
-</div>
-
-
-                <!-- Status 2 - AI Message -->
-                <div class="section2-status-card section2-status2">
-                    <div class="section2-ai-message">
-                        <p>Hello, this is</p>
-                        <p>Bhavna, Rahul's</p>
-                        <p>personal assistant.</p>
-                        <p>How can I help?</p>
-                    </div>
-                </div>
-                <div class="section2-audio-wave-container">
-                    <div class="section2-audio-wave">
-                        <div class="section2-wave-bar"></div>
-                        <div class="section2-wave-bar"></div>
-                        <div class="section2-wave-bar"></div>
-                        <div class="section2-wave-bar"></div>
-                        <div class="section2-wave-bar"></div>
-                    </div>
-                </div>
-
-                <!-- Status 3 - Busy Calls Toggle -->
-               <div class="section2-status-card section2-status3">
-    <img src="section2-images/busy-call-animation.gif" alt="Busy calls animation" class="section2-busy-calls-gif">
-</div>
+            <!-- Status 2 - AI Message -->
+            <div class="section2-status-card section2-status2">
+              <div class="section2-ai-message">
+                <p>Hello, this is</p>
+                <p>Bhavna, Rahul's</p>
+                <p>personal assistant.</p>
+                <p>How can I help?</p>
+              </div>
             </div>
+            <div class="section2-audio-wave-container">
+              <div class="section2-audio-wave">
+                <div class="section2-wave-bar"></div>
+                <div class="section2-wave-bar"></div>
+                <div class="section2-wave-bar"></div>
+                <div class="section2-wave-bar"></div>
+                <div class="section2-wave-bar"></div>
+              </div>
+            </div>
+
+            <!-- Status 3 - Busy Calls Toggle -->
+            <div class="section2-status-card section2-status3">
+              <img src="section2-images/busy-call-animation.gif" alt="Busy calls animation"
+                class="section2-busy-calls-gif">
+            </div>
+          </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+      </div>
+      <script src="script.js"></script>
 
     </section>
 
@@ -292,67 +387,67 @@
 
             <!-- Add your call card overlay image here -->
             <!-- <div class="call-card-overlay-main"> -->
-              <!-- Around line 232 in your index.html -->
-              <div class="call-card-overlay">
-                <div class="call-card">
-                  <!-- Header with avatar and phone number -->
-                  <div class="call-card-header">
-                    <div class="call-card-avatar">
-                      <img src="images/avatar-imagee.png" alt="Caller avatar">
-                    </div>
-                    <div class="call-card-info">
-                      <p class="call-card-number">9988998899</p>
-                      <p class="call-card-time">10 August 2025 | 4:38 pm</p>
-                    </div>
-                    <button class="call-card-menu" aria-label="More options">
-                      <svg width="4" height="16" viewBox="0 0 4 16" fill="none">
-                        <circle cx="2" cy="2" r="2" fill="#666" />
-                        <circle cx="2" cy="8" r="2" fill="#666" />
-                        <circle cx="2" cy="14" r="2" fill="#666" />
-                      </svg>
-                    </button>
+            <!-- Around line 232 in your index.html -->
+            <div class="call-card-overlay">
+              <div class="call-card">
+                <!-- Header with avatar and phone number -->
+                <div class="call-card-header">
+                  <div class="call-card-avatar">
+                    <img src="images/avatar-imagee.png" alt="Caller avatar">
                   </div>
+                  <div class="call-card-info">
+                    <p class="call-card-number">9988998899</p>
+                    <p class="call-card-time">10 August 2025 | 4:38 pm</p>
+                  </div>
+                  <button class="call-card-menu" aria-label="More options">
+                    <svg width="4" height="16" viewBox="0 0 4 16" fill="none">
+                      <circle cx="2" cy="2" r="2" fill="#666" />
+                      <circle cx="2" cy="8" r="2" fill="#666" />
+                      <circle cx="2" cy="14" r="2" fill="#666" />
+                    </svg>
+                  </button>
+                </div>
 
-                  <!-- Audio message section -->
-                  <div class="call-card-message">
-                    <div class="call-card-play">
-                      <button class="play-button" aria-label="Play recording">
+                <!-- Audio message section -->
+                <div class="call-card-message">
+                  <div class="call-card-play">
+                    <button class="play-button" aria-label="Play recording">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <circle cx="12" cy="12" r="12" fill="#412B76" />
                         <path d="M10 8L16 12L10 16V8Z" fill="white" />
                       </svg>
-                   <p class="message-duration">49 sec</p>
+                      <p class="message-duration">49 sec</p>
 
                     </button>
-                    </div>
-                    
-                    <div class="message-content">
-                      <!-- <p class="message-duration">49 sec</p> -->
-                      <p class="message-text">
-                        Nikhil Sir, I'm waiting at the reception to deliver your package. I'm from Amazon. Your order
-                        number is AMZ12048642038. It's a cash-on-delivery order. Please come to the reception to receive
-                        it.
-                      </p>
-                    </div>
                   </div>
 
-                  <!-- Action buttons -->
-                  <div class="call-card-actions">
-                    <button class="action-btn" aria-label="Call back">
-                      <img src="images/call-icon.png" alt="">
-                    </button>
-                    <button class="action-btn" aria-label="WhatsApp">
-                      <img src="images/whatsapp-icon.png" alt="">
-                    </button>
-                    <button class="action-btn" aria-label="Mark important">
-                      <img src="images/rating-icon.png" alt="">
-                    </button>
-                    <button class="action-btn" aria-label="Share">
-                      <img src="images/share-icon.png" alt="">
-                    </button>
+                  <div class="message-content">
+                    <!-- <p class="message-duration">49 sec</p> -->
+                    <p class="message-text">
+                      Nikhil Sir, I'm waiting at the reception to deliver your package. I'm from Amazon. Your order
+                      number is AMZ12048642038. It's a cash-on-delivery order. Please come to the reception to receive
+                      it.
+                    </p>
                   </div>
                 </div>
+
+                <!-- Action buttons -->
+                <div class="call-card-actions">
+                  <button class="action-btn" aria-label="Call back">
+                    <img src="images/call-icon.png" alt="">
+                  </button>
+                  <button class="action-btn" aria-label="WhatsApp">
+                    <img src="images/whatsapp-icon.png" alt="">
+                  </button>
+                  <button class="action-btn" aria-label="Mark important">
+                    <img src="images/rating-icon.png" alt="">
+                  </button>
+                  <button class="action-btn" aria-label="Share">
+                    <img src="images/share-icon.png" alt="">
+                  </button>
+                </div>
               </div>
+            </div>
             <!-- </div> -->
           </div>
         </div>
@@ -419,10 +514,10 @@
         <div class="card">
           <div class="card-icon-circle">
             <div class="card-icon">
-            <img src="images/subscription-icon.png" alt="Refresh icon">
+              <img src="images/subscription-icon.png" alt="Refresh icon">
+            </div>
           </div>
-          </div>
-          
+
           <h3 class="card-title">Subscription Overview</h3>
           <p class="card-description">
             See your current plan, remaining minutes, and renewal date instantly.
@@ -432,10 +527,10 @@
         <div class="card">
           <div class="card-icon-circle">
             <div class="card-icon">
-            <img src="images/account-icon.png" alt="User icon">
+              <img src="images/account-icon.png" alt="User icon">
+            </div>
           </div>
-          </div>
-          
+
           <h3 class="card-title">Account Customization</h3>
           <p class="card-description">
             Update personal details and AI preferences without hassle.
@@ -445,10 +540,10 @@
         <div class="card">
           <div class="card-icon-circle">
             <div class="card-icon">
-            <img src="images/usage-transparency-icon.png" alt="Chart icon">
+              <img src="images/usage-transparency-icon.png" alt="Chart icon">
+            </div>
           </div>
-          </div>
-          
+
           <h3 class="card-title">Usage Transparency</h3>
           <p class="card-description">
             Track your AI talk time and call usage with simple visual indicators.
@@ -615,18 +710,18 @@
                 <div class="feature-icon check"></div>
                 <span class="feature-text">Custom Plan</span>
               </li>
-              
+
             </ul>
-           
+
           </div>
-          <li>
-                <p class="feature-subtext">Contact Us</p>
-              </li>
+          <div>
+            <p class="feature-subtext">Contact Us</p>
+          </div>
         </div>
       </div>
     </section>
 
-<!-- Small buisness  -->
+    <!-- Small buisness  -->
     <section class="small-business-section" id="small-business">
       <div class="small-business-header">
         <h2 class="small-business-title">
@@ -690,7 +785,8 @@
           <div class="plan-details">
             <h3 class="plan-section-title">Plan tailored to your needs:</h3>
             <p class="plan-description">
-              Get a customized plan built around your workflow—whether you're a clinic,<br> consultant, or lawyer handling
+              Get a customized plan built around your workflow—whether you're a clinic,<br> consultant, or lawyer
+              handling
               daily calls.
             </p>
           </div>
@@ -847,136 +943,139 @@
 
 
     <!-- FAQ Section -->
-<section class="faq-section" id="faqs">
-    <div class="faq-container">
+    <section class="faq-section" id="faqs">
+      <div class="faq-container">
         <!-- Left Side: Heading & Contact -->
         <div class="faq-left">
-            <p class="faq-label">FAQs</p>
-            <h2 class="faq-heading">Frequently Asked Questions</h2>
-            <p class="faq-contact-text">Ask us anything!</p>
-            <a href="mailto:support@catchmycall.ai" class="faq-email">
-                <!-- <i class="fas fa-envelope"></i> -->
-                 <img src="images/email-icon.png" class="faq-envelope"/>
-                support@catchmycall.ai
-            </a>
+          <p class="faq-label">FAQs</p>
+          <h2 class="faq-heading">Frequently Asked Questions</h2>
+          <p class="faq-contact-text">Ask us anything!</p>
+          <a href="mailto:support@catchmycall.ai" class="faq-email">
+            <!-- <i class="fas fa-envelope"></i> -->
+            <img src="images/email-icon.png" class="faq-envelope" />
+            support@catchmycall.ai
+          </a>
         </div>
 
         <!-- Right Side: FAQ Items -->
         <div class="faq-right">
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Is CatchMyCall secure?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Absolutely. We use enterprise-grade encryption to protect your data, and no call content is shared or
-              stored without your consent. Your privacy is our top priority.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is CatchMyCall secure?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. We use enterprise-grade encryption to protect your data, and no call content is shared or
+                stored without your consent. Your privacy is our top priority.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Can I use CatchMyCall on multiple devices?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes! You can access your Catch My Call account from any device — whether it’s your phone, tablet, or
-              laptop. Everything stays perfectly in sync.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I use CatchMyCall on multiple devices?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! You can access your Catch My Call account from any device — whether it’s your phone, tablet, or
+                laptop. Everything stays perfectly in sync.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Will Catch My Call actually talk to people on my behalf?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes! Our AI picks up calls when you can’t, speaks naturally with your callers, and provides you with a
-              full summary afterward — like having a personal assistant in your pocket.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Will Catch My Call actually talk to people on my behalf?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Our AI picks up calls when you can’t, speaks naturally with your callers, and provides you with a
+                full summary afterward — like having a personal assistant in your pocket.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>What kind of calls can the AI handle?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>You can customize which calls the AI handles — whether they’re missed, busy, unreachable, or declined.
-              You stay in control at all times.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What kind of calls can the AI handle?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>You can customize which calls the AI handles — whether they’re missed, busy, unreachable, or declined.
+                You stay in control at all times.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Can I listen to the calls or read summaries later?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Definitely. Every conversation your AI handles is transcribed and summarized. You can also listen to call
-              recordings if enabled.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I listen to the calls or read summaries later?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Definitely. Every conversation your AI handles is transcribed and summarized. You can also listen to
+                call
+                recordings if enabled.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Does the AI support multiple languages?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes, Catch My Call supports 15+ languages so your callers are always understood — no matter where they’re
-              from.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Does the AI support multiple languages?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, Catch My Call supports 15+ languages so your callers are always understood — no matter where
+                they’re
+                from.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Is this app only for professionals or businesses?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Not at all! Whether you’re a busy founder, freelancer, student, or just someone who hates phone calls —
-              Catch My Call is built for you.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is this app only for professionals or businesses?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Not at all! Whether you’re a busy founder, freelancer, student, or just someone who hates phone calls —
+                Catch My Call is built for you.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>What if someone calls with an urgent matter?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Our AI is trained to detect urgency and can flag high-priority calls so you’re notified immediately.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What if someone calls with an urgent matter?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Our AI is trained to detect urgency and can flag high-priority calls so you’re notified immediately.
+              </p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Do callers know they're speaking to an AI?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>You can choose! Let callers know it’s an assistant or keep it fully conversational — it’s totally up to
-              you.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do callers know they're speaking to an AI?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>You can choose! Let callers know it’s an assistant or keep it fully conversational — it’s totally up to
+                you.</p>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>What if I need help using the app?</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Our support team is here 24/7 via chat and email. Plus, we’ve built a smooth onboarding and tutorial
-              system to help you get started in minutes.</p>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What if I need help using the app?</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Our support team is here 24/7 via chat and email. Plus, we’ve built a smooth onboarding and tutorial
+                system to help you get started in minutes.</p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <!-- Stats Section -->
-    <section class="stats-section" >
+    <section class="stats-section">
       <div class="stats-container">
         <div class="stat-card">
           <div class="stat-circle blue">
@@ -1007,7 +1106,7 @@
     <!-- Download App Section -->
     <section class="download-app-section">
       <div class="download-app-container">
-        <div class="download-card" >
+        <div class="download-card">
 
           <h2 class="download-title">Join CatchMyCall to control your calls</h2>
 
@@ -1022,10 +1121,12 @@
           </div>
 
           <div class="app-store-buttons">
-            <a href="#" class="app-store-link" aria-label="Download on App Store">
+            <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link"
+              aria-label="Download on App Store">
               <img src="images/app-store-button.png" alt="Download on App Store">
             </a>
-            <a href="#" class="app-store-link" aria-label="Get on Google Play">
+            <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="app-store-link"
+              aria-label="Get on Google Play">
               <img src="images/google-play-button.png" alt="Get it on Google Play">
             </a>
           </div>
@@ -1036,7 +1137,7 @@
     </section>
 
 
-<!-- footer  -->
+    <!-- footer  -->
 
     <footer class="footer">
       <div class="footer-container">
@@ -1062,7 +1163,7 @@
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#testimonials">What Users Say</a></li>
               <li><a href="#faqs">FAQs</a></li>
-              <li><a href="/CatchMyCall/privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
               <li><a href="#terms-conditions">Terms and Conditions</a></li>
             </ul>
           </nav>

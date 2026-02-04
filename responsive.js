@@ -1,4 +1,6 @@
 /* rotating  cards */
+console.log("✅ responsive.js file loaded successfully!");
+
 document.addEventListener('DOMContentLoaded', function () {
   const cards = Array.from(document.querySelectorAll('.rotating-card'));
   const indicators = document.querySelectorAll('.indicator-dot');
@@ -111,16 +113,8 @@ function getCardSubtitles() {
   updateCardPositions();
 });
 
-/* 🚀 Init */
-updateCardPositions();
+// Mobile navigation code starts here (removed duplicate code that was causing errors)
 
-/* 📱 Update subtitles on window resize */
-window.addEventListener('resize', () => {
-  const activeCard = document.querySelector('.rotating-card.active');
-  if (activeCard) {
-    updateSubtitle(activeCard);
-  }
-});
 
 
 
@@ -393,34 +387,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Mobile Navigation Menu Toggle
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("🔍 Mobile Navigation: DOMContentLoaded event fired");
 
   const hamburgerMenu = document.getElementById("hamburgerMenu");
   const mobileNavOverlay = document.getElementById("mobileNavOverlay");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
   
+  console.log("🔍 Mobile Navigation: Elements found:");
+  console.log("  - hamburgerMenu:", hamburgerMenu);
+  console.log("  - mobileNavOverlay:", mobileNavOverlay);
+  console.log("  - mobileNavLinks count:", mobileNavLinks.length);
 
-  if (!hamburgerMenu || !mobileNavOverlay) return;
+  if (!hamburgerMenu || !mobileNavOverlay) {
+    console.error("❌ Mobile Navigation: Required elements not found!");
+    console.error("  - hamburgerMenu exists:", !!hamburgerMenu);
+    console.error("  - mobileNavOverlay exists:", !!mobileNavOverlay);
+    return;
+  }
+  
   const hamburgerIcon = hamburgerMenu.querySelector("i"); // FontAwesome icon
+  console.log("🔍 Mobile Navigation: hamburgerIcon found:", hamburgerIcon);
 
   // Toggle menu
   hamburgerMenu.addEventListener("click", function () {
+    console.log("🖱️ Mobile Navigation: Hamburger menu clicked!");
+    console.log("  - Current overlay classes:", mobileNavOverlay.className);
+    
     mobileNavOverlay.classList.toggle("active");
+    
+    console.log("  - After toggle, overlay classes:", mobileNavOverlay.className);
+    console.log("  - Overlay has 'active' class:", mobileNavOverlay.classList.contains("active"));
 
     // Switch icon ☰ ↔ ✕
     if (mobileNavOverlay.classList.contains("active")) {
+      console.log("✅ Mobile Navigation: Opening menu");
       hamburgerIcon.classList.remove("fa-bars");
       hamburgerIcon.classList.add("fa-xmark");
       document.body.style.overflow = "hidden";
+      console.log("  - Icon classes:", hamburgerIcon.className);
+      console.log("  - Body overflow:", document.body.style.overflow);
     } else {
+      console.log("❌ Mobile Navigation: Closing menu");
       hamburgerIcon.classList.remove("fa-xmark");
       hamburgerIcon.classList.add("fa-bars");
       document.body.style.overflow = "";
+      console.log("  - Icon classes:", hamburgerIcon.className);
+      console.log("  - Body overflow:", document.body.style.overflow);
     }
+    
+    // Log computed styles
+    const overlayStyles = window.getComputedStyle(mobileNavOverlay);
+    console.log("📊 Mobile Navigation: Overlay computed styles:");
+    console.log("  - display:", overlayStyles.display);
+    console.log("  - opacity:", overlayStyles.opacity);
+    console.log("  - visibility:", overlayStyles.visibility);
+    console.log("  - z-index:", overlayStyles.zIndex);
+    console.log("  - position:", overlayStyles.position);
   });
 
   // Close menu when clicking a link
   mobileNavLinks.forEach(link => {
     link.addEventListener("click", function () {
+      console.log("🔗 Mobile Navigation: Nav link clicked");
       mobileNavOverlay.classList.remove("active");
       hamburgerIcon.classList.remove("fa-xmark");
       hamburgerIcon.classList.add("fa-bars");
@@ -435,6 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close when clicking outside content
   mobileNavOverlay.addEventListener("click", function (e) {
     if (e.target === mobileNavOverlay) {
+      console.log("🖱️ Mobile Navigation: Clicked outside content, closing menu");
       mobileNavOverlay.classList.remove("active");
       hamburgerIcon.classList.remove("fa-xmark");
       hamburgerIcon.classList.add("fa-bars");
@@ -442,6 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  console.log("✅ Mobile Navigation: Event listeners attached successfully");
 });
 
 
