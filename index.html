@@ -31,8 +31,7 @@
 
   </div>
 
-  <!-- Mobile Navigation Overlay -->
-  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
 
     <div class="mobile-nav-content">
 
@@ -47,9 +46,8 @@
       </div>
 
       <div class="mobile-app-buttons">
-        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479"><img src="images/Group 48099465.png"></a>
-        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall"><img
-            src="images/Group 48099464.png"></a>
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="appStoreButton"><img src="images/Group 48099465.png"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="play-store-link" id="playStoreButton"><img src="images/Group 48099464.png"></a>
       </div>
 
     </div>
@@ -143,6 +141,76 @@
 
       console.log("✅ Mobile navigation initialized successfully!");
     }
+
+    // ============================================
+    // Device OS Detection & Conditional Button Display
+    // ============================================
+    console.log("📱 Starting device OS detection...");
+
+    function detectDeviceOS() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      console.log("🔍 User Agent:", userAgent);
+
+      let detectedOS = null;
+
+      // iOS Detection
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        detectedOS = 'iOS';
+        console.log("✅ Device detected: iOS");
+      } 
+      // Android Detection
+      else if (/Android/.test(userAgent)) {
+        detectedOS = 'Android';
+        console.log("✅ Device detected: Android");
+      } 
+      // Fallback - Not mobile or unknown
+      else {
+        detectedOS = 'Unknown';
+        console.log("⚠️ Device detected: Unknown (possibly desktop)");
+      }
+
+      return detectedOS;
+    }
+
+    function conditionallyDisplayAppButtons() {
+      const appStoreButton = document.getElementById("appStoreButton");
+      const playStoreButton = document.getElementById("playStoreButton");
+
+      if (!appStoreButton || !playStoreButton) {
+        console.error("❌ App store buttons not found!");
+        return;
+      }
+
+      const deviceOS = detectDeviceOS();
+
+      // Show/Hide buttons based on device OS
+      if (deviceOS === 'iOS') {
+        appStoreButton.style.display = 'inline-block';
+        playStoreButton.style.display = 'none';
+        console.log("📲 Showing: App Store button only");
+      } else if (deviceOS === 'Android') {
+        appStoreButton.style.display = 'none';
+        playStoreButton.style.display = 'inline-block';
+        console.log("📲 Showing: Play Store button only");
+      } else {
+        // Unknown device - show both buttons
+        appStoreButton.style.display = 'inline-block';
+        playStoreButton.style.display = 'inline-block';
+        console.log("📲 Device unknown - Showing: Both buttons");
+      }
+    }
+
+    // Execute conditional display on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', conditionallyDisplayAppButtons);
+      console.log("⏳ DOM loading - will execute on DOMContentLoaded");
+    } else {
+      // DOM is already loaded
+      conditionallyDisplayAppButtons();
+      console.log("✅ DOM already loaded - executed immediately");
+    }
+
   </script>
 
 
