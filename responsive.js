@@ -67,14 +67,37 @@ function getCardSubtitles() {
     heroSubtitle.classList.remove('fade-out');
   }, 200);
 }
+  // function updateBackground(activeCard) {
+  //   if (!backgroundOverlay) return;
+
+  //   const type = activeCard.dataset.card;
+  //   backgroundOverlay.className =
+  //     'hero-background-overlay ' + (cardBackgrounds[type] || '');
+  // }
+
   function updateBackground(activeCard) {
-    if (!backgroundOverlay) return;
+  if (!backgroundOverlay) return;
 
-    const type = activeCard.dataset.card;
-    backgroundOverlay.className =
-      'hero-background-overlay ' + (cardBackgrounds[type] || '');
-  }
-
+  const type = activeCard.dataset.card;
+  const newClass = 'hero-background-overlay ' + (cardBackgrounds[type] || '');
+  
+  // SAFARI FIX: Force opacity fade-out, then class change, then fade-in
+  // This forces Safari to destroy and recreate the GPU layer
+  
+  // Step 1: Fade out
+  backgroundOverlay.style.opacity = '0';
+  
+  // Step 2: After fade completes, change class and force reflow
+  setTimeout(() => {
+    backgroundOverlay.className = newClass;
+    
+    // Force browser reflow (critical for Safari)
+    void backgroundOverlay.offsetHeight;
+    
+    // Step 3: Fade back in
+    backgroundOverlay.style.opacity = '';
+  }, 400); // Match the CSS transition duration
+}
   function updateCardPositions() {
     const total = cards.length;
 

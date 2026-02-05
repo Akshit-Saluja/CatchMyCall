@@ -440,7 +440,7 @@ body {
   perspective: 1200px;
 }
 /* Large ambient glow behind all rotating cards */
-.hero-background-overlay {
+/* .hero-background-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -454,9 +454,35 @@ body {
   pointer-events: none;
   transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
- 
+  */
+
+/* Large ambient glow behind all rotating cards */
+.hero-background-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(80px); /* REDUCED from 120px for Safari compatibility */
+  -webkit-filter: blur(80px); /* Safari-specific prefix */
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+  
+  /* CRITICAL: These properties force Safari to recreate GPU layers */
+  will-change: transform, opacity;
+  -webkit-transform: translate(-50%, -50%) translateZ(0);
+  transform: translate(-50%, -50%) translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+  /* NO transition on background - we'll handle it differently */
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 /* Glow colors for each card type */
-.hero-background-overlay.bg-not-reachable {
+/* .hero-background-overlay.bg-not-reachable {
   background: radial-gradient(circle, rgba(168, 85, 247, 0.9) 0%, rgba(168, 85, 247, 0.5) 70%, transparent 60%);
 }
  
@@ -470,8 +496,52 @@ body {
  
 .hero-background-overlay.bg-no-answer {
   background: radial-gradient(circle, rgba(251, 146, 60, 0.9) 0%, rgba(251, 146, 60, 0.5) 70%, transparent 60%);
+} */
+ 
+/* Glow colors for each card type - OPTIMIZED FOR SAFARI */
+.hero-background-overlay.bg-not-reachable {
+  background: radial-gradient(
+    circle at center, 
+    rgba(168, 85, 247, 0.85) 0%, 
+    rgba(168, 85, 247, 0.45) 60%, 
+    rgba(168, 85, 247, 0.1) 80%,
+    transparent 100%
+  );
+  opacity: 0.7; /* Slightly increased since we reduced blur */
 }
  
+.hero-background-overlay.bg-all-calls {
+  background: radial-gradient(
+    circle at center, 
+    rgba(59, 130, 246, 0.85) 0%, 
+    rgba(59, 130, 246, 0.45) 60%, 
+    rgba(59, 130, 246, 0.1) 80%,
+    transparent 100%
+  );
+  opacity: 0.7;
+}
+ 
+.hero-background-overlay.bg-busy {
+  background: radial-gradient(
+    circle at center, 
+    rgba(34, 197, 94, 0.85) 0%, 
+    rgba(34, 197, 94, 0.45) 60%, 
+    rgba(34, 197, 94, 0.1) 80%,
+    transparent 100%
+  );
+  opacity: 0.7;
+}
+ 
+.hero-background-overlay.bg-no-answer {
+  background: radial-gradient(
+    circle at center, 
+    rgba(251, 146, 60, 0.85) 0%, 
+    rgba(251, 146, 60, 0.45) 60%, 
+    rgba(251, 146, 60, 0.1) 80%,
+    transparent 100%
+  );
+  opacity: 0.7;
+}
 
 .rotating-card {
   position: absolute;

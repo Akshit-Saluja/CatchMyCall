@@ -92,3 +92,5 @@ let animationInterval = setInterval(() => {
         cycleStates();
     }
 }, animationDuration);
+
+
