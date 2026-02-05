@@ -20,6 +20,123 @@
 
 <body>
   
+  <!-- Mobile Navigation Bar -->
+  <div class="mobile-nav-bar">
+
+    <!-- Hamburger (Left) -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Logo (Center) -->
+    <div class="mobile-logo">
+      <p class="mobile-logo-text">CatchMyCall</p>
+    </div>
+
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+
+    <div class="mobile-nav-content">
+
+      <div class="mobile-nav-links">
+        <a href="./index.html#home" class="mobile-nav-link">Home</a>
+        <a href="./index.html#product-features" class="mobile-nav-link">Product Features</a>
+        <a href="./index.html#how-it-works" class="mobile-nav-link">How It Works</a>
+        <a href="./index.html#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="./index.html#small-business" class="mobile-nav-link">Small Business</a>
+        <a href="./index.html#faqs" class="mobile-nav-link">What Our Clients Say</a>
+        <a href="./index.html#faqs" class="mobile-nav-link">FAQs</a>
+      </div>
+
+      <div class="mobile-app-buttons">
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="appStoreButton"><img
+            src="images/Group 48099465.png"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="play-store-link"
+          id="playStoreButton"><img src="images/Group 48099464.png"></a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Mobile Navigation Script -->
+  <script>
+    console.log("🚀 Mobile Navigation: Inline script starting...");
+
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+    console.log("📋 Elements check:");
+    console.log("  - hamburgerMenu:", hamburgerMenu);
+    console.log("  - mobileNavOverlay:", mobileNavOverlay);
+    console.log("  - mobileNavLinks:", mobileNavLinks.length);
+
+    if (!hamburgerMenu || !mobileNavOverlay) {
+      console.error("❌ Required elements not found!");
+      console.error("  - hamburgerMenu:", !!hamburgerMenu);
+      console.error("  - mobileNavOverlay:", !!mobileNavOverlay);
+    } else {
+      const hamburgerIcon = hamburgerMenu.querySelector("i");
+      console.log("  - hamburgerIcon:", hamburgerIcon);
+
+      // Toggle menu on hamburger click
+      hamburgerMenu.addEventListener("click", function () {
+        console.log("🖱️ Hamburger clicked!");
+        console.log("  - Before toggle:", mobileNavOverlay.className);
+
+        // Toggle active class
+        mobileNavOverlay.classList.toggle("active");
+
+        console.log("  - After toggle:", mobileNavOverlay.className);
+        console.log("  - Has active class:", mobileNavOverlay.classList.contains("active"));
+
+        // Switch icon and lock body scroll
+        if (mobileNavOverlay.classList.contains("active")) {
+          console.log("✅ Opening menu");
+          hamburgerIcon.classList.remove("fa-bars");
+          hamburgerIcon.classList.add("fa-xmark");
+          document.body.style.overflow = "hidden";
+        } else {
+          console.log("❌ Closing menu");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+        }
+
+        // Log computed styles
+        const styles = window.getComputedStyle(mobileNavOverlay);
+        console.log("📊 Overlay computed styles:");
+        console.log("  - display:", styles.display);
+        console.log("  - opacity:", styles.opacity);
+        console.log("  - visibility:", styles.visibility);
+        console.log("  - z-index:", styles.zIndex);
+        console.log("  - position:", styles.position);
+        console.log("  - top:", styles.top);
+        console.log("  - left:", styles.left);
+        console.log("  - width:", styles.width);
+        console.log("  - height:", styles.height);
+      });
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          console.log("🔗 Nav link clicked");
+          mobileNavOverlay.classList.remove("active");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+
+          // Update active state
+          mobileNavLinks.forEach(l => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      console.log("✅ Mobile navigation initialized successfully!");
+    }
+  </script>
 
     <section class="navigation">
       <div class="navigation-div">
@@ -293,7 +410,7 @@
               <div class="contact-icon" aria-label="Email icon">
                 <img src="images/email-icon.png" alt="" />
               </div>
-              <a href="mailto:support@catchmycall.ai">support@catchmycall.ai</a>
+              <a href="/cdn-cgi/l/email-protection#e5969095958a9791a5868491868d889c86848989cb848c"><span class="__cf_email__" data-cfemail="95e6e0e5e5fae7e1d5f6f4e1f6fdf8ecf6f4f9f9bbf4fc">[email&#160;protected]</span></a>
             </div>
             <div class="contact-item">
               <div class="contact-icon contact-phone" aria-label="Phone icon">
@@ -341,16 +458,3 @@
           <span>Copyright © 2025 All Rights Reserved By </span>
           <a href="https://teeofftechnologies.com/" target="_blank" rel="noopener noreferrer">TeeOff Technologies</a>
           <span> & </span>
-          <span>CatchMyCall</span>
-        </p>
-      </div>
-    </footer>
-
-
-
-  
-  <script src="responsive.js"></script>
- 
-</body>
-
-</html>

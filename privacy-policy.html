@@ -20,6 +20,123 @@
 
 <body>
   
+  <!-- Mobile Navigation Bar -->
+  <div class="mobile-nav-bar">
+
+    <!-- Hamburger (Left) -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Logo (Center) -->
+    <div class="mobile-logo">
+      <p class="mobile-logo-text">CatchMyCall</p>
+    </div>
+
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+
+    <div class="mobile-nav-content">
+
+      <div class="mobile-nav-links">
+        <a href="./index.html#home" class="mobile-nav-link">Home</a>
+        <a href="./index.html#product-features" class="mobile-nav-link">Product Features</a>
+        <a href="./index.html#how-it-works" class="mobile-nav-link">How It Works</a>
+        <a href="./index.html#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="./index.html#small-business" class="mobile-nav-link">Small Business</a>
+        <a href="./index.html#faqs" class="mobile-nav-link">What Our Clients Say</a>
+        <a href="./index.html#faqs" class="mobile-nav-link">FAQs</a>
+      </div>
+
+      <div class="mobile-app-buttons">
+        <a href="https://apps.apple.com/in/app/catchmycall/id6747666479" class="app-store-link" id="appStoreButton"><img
+            src="images/Group 48099465.png"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ai.catchmycall" class="play-store-link"
+          id="playStoreButton"><img src="images/Group 48099464.png"></a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Mobile Navigation Script -->
+  <script>
+    console.log("🚀 Mobile Navigation: Inline script starting...");
+
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+    console.log("📋 Elements check:");
+    console.log("  - hamburgerMenu:", hamburgerMenu);
+    console.log("  - mobileNavOverlay:", mobileNavOverlay);
+    console.log("  - mobileNavLinks:", mobileNavLinks.length);
+
+    if (!hamburgerMenu || !mobileNavOverlay) {
+      console.error("❌ Required elements not found!");
+      console.error("  - hamburgerMenu:", !!hamburgerMenu);
+      console.error("  - mobileNavOverlay:", !!mobileNavOverlay);
+    } else {
+      const hamburgerIcon = hamburgerMenu.querySelector("i");
+      console.log("  - hamburgerIcon:", hamburgerIcon);
+
+      // Toggle menu on hamburger click
+      hamburgerMenu.addEventListener("click", function () {
+        console.log("🖱️ Hamburger clicked!");
+        console.log("  - Before toggle:", mobileNavOverlay.className);
+
+        // Toggle active class
+        mobileNavOverlay.classList.toggle("active");
+
+        console.log("  - After toggle:", mobileNavOverlay.className);
+        console.log("  - Has active class:", mobileNavOverlay.classList.contains("active"));
+
+        // Switch icon and lock body scroll
+        if (mobileNavOverlay.classList.contains("active")) {
+          console.log("✅ Opening menu");
+          hamburgerIcon.classList.remove("fa-bars");
+          hamburgerIcon.classList.add("fa-xmark");
+          document.body.style.overflow = "hidden";
+        } else {
+          console.log("❌ Closing menu");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+        }
+
+        // Log computed styles
+        const styles = window.getComputedStyle(mobileNavOverlay);
+        console.log("📊 Overlay computed styles:");
+        console.log("  - display:", styles.display);
+        console.log("  - opacity:", styles.opacity);
+        console.log("  - visibility:", styles.visibility);
+        console.log("  - z-index:", styles.zIndex);
+        console.log("  - position:", styles.position);
+        console.log("  - top:", styles.top);
+        console.log("  - left:", styles.left);
+        console.log("  - width:", styles.width);
+        console.log("  - height:", styles.height);
+      });
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          console.log("🔗 Nav link clicked");
+          mobileNavOverlay.classList.remove("active");
+          hamburgerIcon.classList.remove("fa-xmark");
+          hamburgerIcon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+
+          // Update active state
+          mobileNavLinks.forEach(l => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      console.log("✅ Mobile navigation initialized successfully!");
+    }
+  </script>
 
     <section class="navigation">
       <div class="navigation-div">
@@ -126,14 +243,14 @@
           <p><strong>Legal Entity Name:</strong> Teeoff Technologies Private Limited</p>
           <p><strong>Registered Address:</strong> D-102, THE PALM DRIVE, GOLF COURSE EXTENSION ROAD, SECTOR-66, Gurgaon, Haryana, India - 122018</p>
           <p><strong>Website:</strong> www.bjsjijf.com</p>
-          <p><strong>Email:</strong> abc@gmail.com</p>
+          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e3828180a3848e828a8fcd808c8e">[email&#160;protected]</a></p>
           <p><strong>Phone:</strong> **********</p>
         </div>
         
         <h3 class="subsection-title">Data Protection Officer (DPO):</h3>
         <p>For users in the European Union, United Kingdom, and other jurisdictions requiring a DPO, you may contact our Data Protection Officer at:</p>
         <div class="info-box">
-          <p><strong>Email:</strong> abc@gmail.com</p>
+          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a0a3a281a6aca0a8adefa2aeac">[email&#160;protected]</a></p>
           <p><strong>Address:</strong> jfhfijkdjwiohfjid</p>
         </div>
         
@@ -689,7 +806,7 @@
         <p>Upon account deletion, all associated data (call recordings, transcripts, summaries, metadata) is permanently deleted within [DELETION_TIMEFRAME].</p>
         
         <p><strong>Callers (Third Parties) can request deletion by:</strong></p>
-        <p>Contacting abc@gmail.com with phone number used for the call, approximate date and time, and name of Service User called (if known). We will verify your identity and delete your data within [DELETION_TIMEFRAME] of verification.</p>
+        <p>Contacting <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c0d0e0f2c0b010d0500420f0301">[email&#160;protected]</a> with phone number used for the call, approximate date and time, and name of Service User called (if known). We will verify your identity and delete your data within [DELETION_TIMEFRAME] of verification.</p>
       </section>
 
       <!-- Section 13: Your Privacy Rights -->
@@ -744,7 +861,7 @@
         <h3 class="subsection-title">How to Exercise Your Rights</h3>
         <p>To exercise any of your privacy rights, please contact us at:</p>
         <div class="info-box">
-          <p><strong>Email:</strong> abc@gmail.com</p>
+          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b7a79785b7c767a727735787476">[email&#160;protected]</a></p>
           <p><strong>Phone:</strong> **********</p>
           <p><strong>Online Form:</strong> https//:hjhdskjghfkjs.com</p>
         </div>
@@ -909,7 +1026,7 @@
             <i class="fas fa-envelope"></i>
             <div>
               <h4>Email</h4>
-              <p><a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a></p>
+              <p><a href="/cdn-cgi/l/email-protection#86ddc5c9c8d2c7c5d2d9c3cbc7cfcadb">[CONTACT_EMAIL]</a></p>
             </div>
           </div>
           
@@ -995,7 +1112,7 @@
         
         <div class="questions-box">
           <h3>Questions?</h3>
-          <p>If you have any questions about this Privacy Policy or our data practices, please contact us at <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>.</p>
+          <p>If you have any questions about this Privacy Policy or our data practices, please contact us at <a href="/cdn-cgi/l/email-protection#3d666d6f746b7c7e646278707c747160">[PRIVACY_EMAIL]</a>.</p>
         </div>
       </section>
 
@@ -1051,7 +1168,7 @@
               <div class="contact-icon" aria-label="Email icon">
                 <img src="images/email-icon.png" alt="" />
               </div>
-              <a href="mailto:support@catchmycall.ai">support@catchmycall.ai</a>
+              <a href="/cdn-cgi/l/email-protection#72010702021d000632111306111a1f0b11131e1e5c131b"><span class="__cf_email__" data-cfemail="62111712120d101622010316010a0f1b01030e0e4c030b">[email&#160;protected]</span></a>
             </div>
             <div class="contact-item">
               <div class="contact-icon contact-phone" aria-label="Phone icon">
@@ -1085,30 +1202,4 @@
             <a href="#" class="social-icon" aria-label="Instagram" target="_blank">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                 <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Copyright -->
-      <div class="footer-bottom">
-        <p class="footer-copyright">
-          <span>Copyright © 2025 All Rights Reserved By </span>
-          <a href="https://teeofftechnologies.com/" target="_blank" rel="noopener noreferrer">TeeOff Technologies</a>
-          <span> & </span>
-          <span>CatchMyCall</span>
-        </p>
-      </div>
-    </footer>
-
-
-
-  
-  <script src="responsive.js"></script>
- 
-</body>
-
-</html>
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4

@@ -361,7 +361,7 @@ body {
    ===================================================== */
 
 .hero {
-  background-image: url("images/section-1.jpg");
+  background-image: url("images/1st-section-bg-without-glow.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -439,6 +439,39 @@ body {
   z-index: 5;
   perspective: 1200px;
 }
+/* Large ambient glow behind all rotating cards */
+.hero-background-overlay {
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ 
+/* Glow colors for each card type */
+.hero-background-overlay.bg-not-reachable {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.9) 0%, rgba(168, 85, 247, 0.5) 70%, transparent 60%);
+}
+ 
+.hero-background-overlay.bg-all-calls {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.9) 0%, rgba(59, 130, 246, 0.5) 70%, transparent 60%);
+}
+ 
+.hero-background-overlay.bg-busy {
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.9) 0%, rgba(34, 197, 94, 0.5) 70%, transparent 60%);
+}
+ 
+.hero-background-overlay.bg-no-answer {
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.9) 0%, rgba(251, 146, 60, 0.5) 70%, transparent 60%);
+}
+ 
 
 .rotating-card {
   position: absolute;
@@ -810,7 +843,7 @@ body {
 
   .rotating-cards-container {
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
@@ -839,11 +872,11 @@ body {
   }
 
   .app-buttons-container {
-    bottom: 25%;
+    bottom: 18%;
   }
 
-  .appstoree,
-  .playstoree {
+  .appstoree img,
+  .playstoree img {
     width: 120px;
   }
 }
@@ -1946,13 +1979,13 @@ body {
   }
 
   .section2-feature-card.section2-active {
-    border: 2.5px solid rgba(144, 201, 236, 0.56);
-    transform: scale(1);
+    border: none;
+    transform: none;
     box-shadow: none;
   }
 
   .section2-feature-card.section2-second.section2-active {
-    border: 2.52px solid rgba(178, 144, 236, 0.40);
+    border: none;
   }
 
   .section2-icon-wrapper {
@@ -2584,7 +2617,7 @@ body {
 .pricing-cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 4px;
   max-width: 1200px;
   width: 100%;
 }
@@ -2600,7 +2633,7 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 91%;
 }
 
 .pricing-card:hover {
@@ -2648,7 +2681,7 @@ body {
   font-family: "rubik", sans-serif;
   text-align: center;
   color: #000;
-  padding: 9px 8px;
+  padding: 5px 8px;
   border-radius: 24px;
   width: 80px;
   font-size: 13px;
@@ -2945,7 +2978,7 @@ body {
 /* Mobile landscape and smaller tablets */
 @media (max-width: 768px) {
   .pricing-section {
-    padding: 60px 20px;
+    padding: 60px 0px;
   }
 
   .pricing-title {
@@ -2954,6 +2987,7 @@ body {
 
   .pricing-subtitle {
     font-size: 16px;
+    margin: 0px 16px;
   }
 
   .pricing-cards-container {
@@ -2978,7 +3012,7 @@ body {
 /* Small mobile devices */
 @media (max-width: 480px) {
   .pricing-card {
-    min-width: 230px;
+    min-width: 280px;
     max-width: 230px;
     padding: 32px 24px;
   }
