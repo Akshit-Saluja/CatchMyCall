@@ -830,7 +830,20 @@ body {
     top: 10%;
     width: 94%;
   }
-
+.hero-background-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
   .text-wrapper-7 {
     font-size: 32px;
   }
