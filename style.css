@@ -464,7 +464,7 @@ body {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  border-radius: 50%;
+  border-radius: 10%;
   filter: blur(80px); /* REDUCED from 120px for Safari compatibility */
   -webkit-filter: blur(80px); /* Safari-specific prefix */
   opacity: 0.6;
