@@ -462,11 +462,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 1300px;
+  height: 300px;
   border-radius: 10%;
   filter: blur(80px); /* REDUCED from 120px for Safari compatibility */
-  -webkit-filter: blur(80px); /* Safari-specific prefix */
+  -webkit-filter: blur(120px); /* Safari-specific prefix */
   opacity: 0.6;
   z-index: -1;
   pointer-events: none;
